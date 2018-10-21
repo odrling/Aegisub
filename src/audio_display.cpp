@@ -900,6 +900,14 @@ void AudioDisplay::PaintMarkers(wxDC &dc, TimeRange updtime)
 		if (marker->GetFeet() & AudioMarker::Feet_Right)
 			PaintFoot(dc, marker_x, 1);
 	}
+
+
+	if (OPT_GET("Timing/Tap To Time")->GetBool()) {
+		dc.SetBrush(wxBrush(*wxGREEN));
+		dc.SetPen(*wxTRANSPARENT_PEN);
+		int marker_x = RelativeXFromTime(controller->GetTimingController()->GetTapMarkerPosition());
+		PaintTapMarker(dc, marker_x);
+	}
 }
 
 void AudioDisplay::PaintFoot(wxDC &dc, int marker_x, int dir)
@@ -908,6 +916,12 @@ void AudioDisplay::PaintFoot(wxDC &dc, int marker_x, int dir)
 	wxPoint foot_bot[3] = { wxPoint(foot_size * dir, 0), wxPoint(0, -foot_size), wxPoint(0, 0) };
 	dc.DrawPolygon(3, foot_top, marker_x, audio_top);
 	dc.DrawPolygon(3, foot_bot, marker_x, audio_top+audio_height);
+}
+
+void AudioDisplay::PaintTapMarker(wxDC &dc, int marker_x)
+{
+	wxPoint arrow[3] = { wxPoint(-foot_size * 2, 0), wxPoint(0, -foot_size * 2), wxPoint(foot_size * 2, 0) };
+	dc.DrawPolygon(3, arrow, marker_x, audio_top+audio_height);
 }
 
 void AudioDisplay::PaintLabels(wxDC &dc, TimeRange updtime)
@@ -1239,6 +1253,7 @@ void AudioDisplay::OnAudioOpen(agi::AudioProvider *provider)
 				OPT_SUB("Colour/Audio Display/Waveform", &AudioDisplay::ReloadRenderingSettings, this),
 				OPT_SUB("Audio/Renderer/Spectrum/Quality", &AudioDisplay::ReloadRenderingSettings, this),
 				OPT_SUB("Audio/Renderer/Spectrum/FreqCurve", &AudioDisplay::ReloadRenderingSettings, this),
+				OPT_SUB("Timing/Tap To Time", &AudioDisplay::OnTapMarkerChanged, this),
 			});
 			OnTimingController();
 		}
@@ -1264,10 +1279,12 @@ void AudioDisplay::OnTimingController()
 		timing_controller->AddMarkerMovedListener(&AudioDisplay::OnMarkerMoved, this);
 		timing_controller->AddUpdatedPrimaryRangeListener(&AudioDisplay::OnSelectionChanged, this);
 		timing_controller->AddUpdatedStyleRangesListener(&AudioDisplay::OnStyleRangesChanged, this);
+		timing_controller->AddUpdatedTapMarkerListener(&AudioDisplay::OnTapMarkerChanged, this);
 
 		OnStyleRangesChanged();
 		OnMarkerMoved();
 		OnSelectionChanged();
+		OnTapMarkerChanged();
 	}
 }
 
@@ -1350,6 +1367,12 @@ void AudioDisplay::OnStyleRangesChanged()
 
 	RefreshRect(wxRect(0, audio_top, GetClientSize().GetWidth(), audio_height), false);
 }
+
+void AudioDisplay::OnTapMarkerChanged()
+{
+	RefreshRect(wxRect(0, audio_top, GetClientSize().GetWidth(), audio_height), false);
+}
+
 
 void AudioDisplay::OnMarkerMoved()
 {
