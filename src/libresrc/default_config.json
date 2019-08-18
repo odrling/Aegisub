@@ -22,8 +22,8 @@
 
 	"Audio" : {
 		"Auto" : {
-			"Commit" : false,
-			"Focus" : false,
+			"Commit" : true,
+			"Focus" : true,
 			"Scroll" : true
 		},
 		"Cache" : {
