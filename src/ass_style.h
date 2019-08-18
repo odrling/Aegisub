@@ -40,11 +40,11 @@ class AssStyle final : public AssEntry, public AssEntryListHook {
 
 public:
 	std::string name = "Default"; ///< Name of the style; must be case-insensitively unique within a file despite being case-sensitive
-	std::string font = "Arial";   ///< Font face name
-	double fontsize = 48.;        ///< Font size
+	std::string font = "Amaranth";   ///< Font face name
+	double fontsize = 20.;        ///< Font size
 
-	agi::Color primary{ 255, 255, 255 }; ///< Default text color
-	agi::Color secondary{ 255, 0, 0 };   ///< Text color for not-yet-reached karaoke syllables
+	agi::Color primary{ 255, 132, 0 }; ///< Default text color
+	agi::Color secondary{ 255, 255, 255 };   ///< Text color for not-yet-reached karaoke syllables
 	agi::Color outline{ 0, 0, 0 };       ///< Outline color
 	agi::Color shadow{ 0, 0, 0 };        ///< Shadow color
 
@@ -60,7 +60,7 @@ public:
 	int borderstyle = 1;       ///< 1: Normal; 3: Opaque box; others are unused in Aegisub
 	double outline_w = 2.;     ///< Outline width in pixels
 	double shadow_w = 2.;      ///< Shadow distance in pixels
-	int alignment = 2;         ///< \an-style line alignment
+	int alignment = 8;         ///< \an-style line alignment
 	std::array<int, 3> Margin; ///< Left / Right / Vertical
 	int encoding = 1;          ///< ASS font encoding needed for some non-unicode fonts
 
