@@ -45,7 +45,7 @@
 #include <wx/intl.h>
 
 AssStyle::AssStyle() {
-	std::fill(Margin.begin(), Margin.end(), 10);
+	std::fill(Margin.begin(), Margin.end(), 30);
 
 	UpdateData();
 }
