@@ -41,7 +41,7 @@ class AssStyle final : public AssEntry, public AssEntryListHook {
 public:
 	std::string name = "Default"; ///< Name of the style; must be case-insensitively unique within a file despite being case-sensitive
 	std::string font = "Amaranth";   ///< Font face name
-	double fontsize = 20.;        ///< Font size
+	double fontsize = 80.;        ///< Font size
 
 	agi::Color primary{ 255, 132, 0 }; ///< Default text color
 	agi::Color secondary{ 255, 255, 255 };   ///< Text color for not-yet-reached karaoke syllables
