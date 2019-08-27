@@ -14,9 +14,9 @@ install:
 
 script:
   - export PATH=$MSBUILD_PATH:$PATH
-  - cmd.exe /C "dir C:/Program Files (x86)/MSBuild"
-  - cmd.exe /C "dir C:/Program Files (x86)/MSBuild/14.0"
-  - cmd.exe /C "dir C:/Program Files (x86)/MSBuild/Microsoft.cpp"
-  - cmd.exe /C "dir C:/Program Files (x86)/MSBuild/Microsoft.cpp/v4.0"
-  - cmd.exe /C "dir C:/Program Files (x86)/MSBuild/Microsoft.cpp/v4.0/v140"
+  - cmd.exe /C "dir "C:/Program Files (x86)/MSBuild""
+  - cmd.exe /C "dir "C:/Program Files (x86)/MSBuild/14.0""
+  - cmd.exe /C "dir "C:/Program Files (x86)/MSBuild/Microsoft.cpp""
+  - cmd.exe /C "dir "C:/Program Files (x86)/MSBuild/Microsoft.cpp/v4.0""
+  - cmd.exe /C "dir "C:/Program Files (x86)/MSBuild/Microsoft.cpp/v4.0/v140""
   - cmd.exe /C 'dotnet.exe msbuild Aegisub.sln /p:Configuration=Release /p:Platform=x64'
