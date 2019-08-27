@@ -1,0 +1,15 @@
+kind: pipeline
+name: default
+
+platform:
+  os: windows
+  arch: amd64
+
+steps:
+  - name: install
+    image: microsoft/dotnet-framework:3.5-sdk-windowsservercore-1709
+    commands:
+      - mkdir /c/TEMP/
+      - curl https://aka.ms/vs/15/release/vs_buildtools.exe -o /c/TEMP/vs_buildtools.exe
+      - cmd.exe /C "C:\\TEMP\\vs_buildtools.exe --quiet --wait --norestart --nocache --channelUri C:\\TEMP\\VisualStudio.chman --installChannelUri C:\\TEMP\\VisualStudio.chman --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --installPath C:\\BuildTools"
+
