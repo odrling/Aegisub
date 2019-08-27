@@ -7,7 +7,7 @@ git:
   submodules: true
 
 env:
-  - MSBUILD_PATH="c:\Program Files (x86)\Microsoft Visual Studio\2015\BuildTools\MSBuild\14.0\Bin"
+  - MSBUILD_PATH="C:\Program Files (x86)\MSBuild\14.0\Bin"
 
 install:
   - choco install -y vcbuildtools --version 2015.4 --force
