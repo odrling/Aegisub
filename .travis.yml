@@ -11,7 +11,7 @@ git:
 
 install:
     #  - choco install -y vcbuildtools --version 2015.4 --force
-  - choco install -y visualstudio2017buildtools --force
+  - choco install -y visualstudio2015community --force
 
 script:
   - export PATH=$MSBUILD_PATH:$PATH
