@@ -6,10 +6,13 @@ os:
 git:
   submodules: false
 
+env:
+  - MSBUILD_PATH="C:\Program Files (x86)\MSBuild\14.0\Bin" VCTargetsPath="C:\Program Files (x86)\MSBuild\Microsoft.cpp\v4.0\v140"
+
 install:
   - choco install -y vcbuildtools --version 2015.4 --force
 
 script:
-  - export PATH="C:\\Program Files (x86)\\MSBuild\\14.0\\Bin":$PATH
-  - export VCTargetsPath="C:\\Program Files (x86)\\MSBuild\\Microsoft.cpp\\v4.0\\v140"
+  - export PATH=$MSBUILD_PATH:$PATH
+  - cmd.exe /C "echo %VCTargetsPath%"
   - cmd.exe /C 'dotnet.exe msbuild Aegisub.sln /p:Configuration=Release /p:Platform=x64'
