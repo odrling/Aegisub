@@ -19,4 +19,4 @@ script:
   - cmd.exe /C 'dir /s "C:/Program Files (x86)/MSBuild/Microsoft.cpp/v4.0/v140/Platforms/x64"'
   - mkdir -p "/c/Users/travis/AppData/Local/Microsoft/MSBuild/v4.0"
   - cp "/c/Program Files (x86)/MSBuild/Microsoft.cpp/v4.0/v140/Platforms/x64/Platform.Default.props" "/c/Users/travis/AppData/Local/Microsoft/MSBuild/v4.0/Microsoft.Cpp.x64.user.props"
-  - cmd.exe /C 'dotnet.exe msbuild Aegisub.sln /p:Configuration=Release /p:Platform=x64'
+  - cmd.exe /C 'MSBuild.exe Aegisub.sln /p:Configuration=Release /p:Platform=x64'
