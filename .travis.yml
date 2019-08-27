@@ -14,8 +14,4 @@ install:
 
 script:
   - export PATH=$MSBUILD_PATH:$PATH
-  - cmd.exe /C 'dir C:\Users\travis\AppData\Local'
-  - cmd.exe /C 'dir C:\Users\travis\AppData\Local\Microsoft'
-  - cmd.exe /C 'dir C:\Users\travis\AppData\Local\Microsoft\MSBuild'
-  - cmd.exe /C 'dir C:\Users\travis\AppData\Local\Microsoft\MSBuild\v4.0'
-  - cmd.exe /C 'MSBuild.exe Aegisub.sln /p:Configuration=Release /p:Platform=x64'
+  - cmd.exe /C 'dotnet.exe msbuild Aegisub.sln /p:Configuration=Release /p:Platform=x64'
