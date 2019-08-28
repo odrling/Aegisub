@@ -30,7 +30,7 @@
   <UsingTask TaskName="TarballProject" AssemblyFile="$(AegisubBinaryDir)BuildTasks.dll" />
   <Target
     Name="Download"
-    BeforeTargets="ClCompile"
+    BeforeTargets="PrepareForBuild"
     Inputs="$(FribidiSrcDir)aegisub.hash"
     Outputs="$(FribidiSrcDir)nonexistent-file"
     >
@@ -43,7 +43,7 @@
 
   <!-- Source files -->
   <ItemGroup>
-    <InstallHeader Include="$(FribidiSrcDir)\lib\*.h">
+    <InstallHeader Include="$(FribidiSrcDir)\**\*.h">
       <HeaderRoot>$(FribidiSrcDir)\lib</HeaderRoot>
     </InstallHeader>
     <InstallHeader Include="$(MSBuildThisFileDirectory)fribidi-config.h">
@@ -62,8 +62,5 @@
     <ClCompile Include="$(FribidiSrcDir)\lib\fribidi-run.c" />
     <ClCompile Include="$(FribidiSrcDir)\lib\fribidi-shape.c" />
     <ClCompile Include="$(FribidiSrcDir)\lib\fribidi.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="$(FribidiSrcDir)\lib\fribidi.h" />
   </ItemGroup>
 </Project>
