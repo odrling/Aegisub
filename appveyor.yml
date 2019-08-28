@@ -5,7 +5,8 @@ install:
   - git submodule update --init --recursive
 
 build_script:
-  - MSBuild.exe "%APPBEYOR_BUILD_FOLDER\Aegisub.sln" /m
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - MSBuild.exe Aegisub.sln /m
 
 platform: x64
 configuration: Release
