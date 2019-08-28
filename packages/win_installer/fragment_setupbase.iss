@@ -33,7 +33,7 @@
 ;
 
 #define BUILD_GIT_VERSION_STRING "Japan7 0.9"
-#define INSTALLER_VERSION 0.9
+#define INSTALLER_VERSION 1
 
 [Setup]
 AppName=Aegisub
