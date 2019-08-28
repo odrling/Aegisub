@@ -10,7 +10,7 @@ install:
 build_script:
   - cd %APPVEYOR_BUILD_FOLDER%
   - MSBuild.exe Aegisub.sln /target:BuildTasks
-  - MSBuild.exe Aegisub.sln /p:Configuration=Release /p:Platform=x64
+  - MSBuild.exe Aegisub.sln /m /p:Configuration=Release /p:Platform=x64
 
 artifacts:
   - path: $(APPVEYOR_BUILD_FOLDER)\bin
