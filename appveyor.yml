@@ -13,4 +13,4 @@ build_script:
   - MSBuild.exe Aegisub.sln /m /p:Configuration=Release /p:Platform=x64
 
 artifacts:
-  - path: $(APPVEYOR_BUILD_FOLDER)\bin
+  - path: bin
