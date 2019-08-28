@@ -12,5 +12,12 @@ build_script:
   - MSBuild.exe Aegisub.sln /target:BuildTasks
   - MSBuild.exe Aegisub.sln /m /p:Configuration=Release /p:Platform=x64
 
+after_build:
+  - curl -o "C:\aegisub-codecs.zip" http://mugen.karaokes.moe/downloads/aegisub-codecs.zip
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - 7z x "C:\aegisub-codecs.zip"
+  - cd packages\win_installer
+  - iscc aegisub3.iss
+
 artifacts:
-  - path: bin
+  - path: packages\win_installer\output\Aegisub-Japan7-x64.exe

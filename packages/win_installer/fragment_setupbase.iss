@@ -32,17 +32,15 @@
 ; Contact: mailto:nielsm@indvikleren.dk
 ;
 
-#include "../../build/git_version.h"
-
 [Setup]
 AppName=Aegisub
-AppVerName=Aegisub {#BUILD_GIT_VERSION_STRING}
-AppVersion={#INSTALLER_VERSION}
+AppVerName=Aegisub Japan7
+AppVersion=0.9
 AppPublisher=Aegisub Team
 AppPublisherURL=http://www.aegisub.org/
 AppSupportURL=https://github.com/TypesettingTools/Aegisub/issues
 AppCopyright=2005-2018 The Aegisub Team
-VersionInfoVersion={#INSTALLER_VERSION}
+VersionInfoVersion=0.9
 DefaultGroupName=Aegisub
 AllowNoIcons=true
 OutputDir=output
@@ -62,8 +60,8 @@ UninstallDisplayIcon={app}\aegisub{#ARCH}.exe
 WizardImageFile=welcome-large.bmp
 WizardSmallImageFile=aegisub-large.bmp
 
-OutputBaseFilename=Aegisub-{#BUILD_GIT_VERSION_STRING}-{#ARCH}
-VersionInfoDescription=Aegisub {#BUILD_GIT_VERSION_STRING} {#ARCH}-bit
+OutputBaseFilename=Aegisub-Japan7-x64
+VersionInfoDescription=Aegisub Japan7 0.9 x64
 
 [Languages]
 Name: "en"; MessagesFile: "compiler:Default.isl"
