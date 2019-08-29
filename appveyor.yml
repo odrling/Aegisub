@@ -13,6 +13,8 @@ build_script:
   - MSBuild.exe Aegisub.sln /m /p:Configuration=Release /p:Platform=x64
 
 after_build:
+  - dir %APPVEYOR_BUILD_FOLDER%
+  - dir %APPVEYOR_BUILD_FOLDER%\po
   - curl -o "C:\aegisub-codecs.zip" http://mugen.karaokes.moe/downloads/aegisub-codecs.zip
   - cd %APPVEYOR_BUILD_FOLDER%
   - 7z x "C:\aegisub-codecs.zip"
