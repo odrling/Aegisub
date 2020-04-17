@@ -6,7 +6,7 @@
 
 The latest Windows build can be downloaded at https://mugen.karaokes.moe/downloads/aegisub-japan7/Aegisub-Japan7-latest-x64
 
-A package is available on the AUR for Arch Linux users: [aegisub-japan7](https://aur.archlinux.org/packages/aegisub-japan7/)
+A package is available on the AUR for Arch Linux users: [aegisub-japan7-git](https://aur.archlinux.org/packages/aegisub-japan7-git/)
 
 An ebuild is available for Gentoo users at https://git.odrling.xyz/odrling/odrling-overlay/src/branch/master/media-video/aegisub/aegisub-9999.ebuild
 
