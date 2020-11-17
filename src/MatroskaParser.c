@@ -1088,8 +1088,9 @@ static void parseSegmentInfo(MatroskaFile *mf,uint64_t toplen) {
 
 static void parseFirstCluster(MatroskaFile *mf,uint64_t toplen) {
   uint64_t end = filepos(mf) + toplen;
+  int tracknum = -1;
+  int i = 0;
 
-  mf->seen.Cluster = 1;
   mf->firstTimecode = 0;
 
   FOREACH(mf,toplen)
@@ -1097,22 +1098,40 @@ static void parseFirstCluster(MatroskaFile *mf,uint64_t toplen) {
       mf->firstTimecode += readUInt(mf,(unsigned)len);
       break;
     case 0xa3: // BlockEx
-      readVLUInt(mf); // track number
-      mf->firstTimecode += readSInt(mf, 2);
+      start = filepos(mf);
+      tracknum = readVLUInt(mf); // track number
 
-      skipbytes(mf,end - filepos(mf));
-      return;
+      for (i = 0; i < mf->nTracks; ++i) {
+        if (mf->Tracks[i]->Number == tracknum && mf->Tracks[i]->Type == TT_VIDEO) {
+          mf->firstTimecode += readSInt(mf, 2);
+          mf->seen.Cluster = 1;
+          skipbytes(mf,end - filepos(mf));
+          return;
+        }
+      }
+
+      skipbytes(mf, len - (filepos(mf) - start));
+      break;
     case 0xa0: // BlockGroup
       FOREACH(mf,len)
-	case 0xa1: // Block
-	  readVLUInt(mf); // track number
-	  mf->firstTimecode += readSInt(mf,2); 
+      case 0xa1: // Block
+        start = filepos(mf);
+        tracknum = readVLUInt(mf); // track number
 
-	  skipbytes(mf,end - filepos(mf));
-	  return;
+        for (i = 0; i < mf->nTracks; ++i) {
+          if (mf->Tracks[i]->Number == tracknum && mf->Tracks[i]->Type == TT_VIDEO) {
+            mf->firstTimecode += readSInt(mf, 2);
+            mf->seen.Cluster = 1;
+            skipbytes(mf,end - filepos(mf));
+            return;
+          }
+        }
+
+        skipbytes(mf, len - (filepos(mf) - start));
+        break;
       ENDFOR(mf);
-      break;
   ENDFOR(mf);
+
 }
 
 static void parseVideoInfo(MatroskaFile *mf,uint64_t toplen,struct TrackInfo *ti) {
