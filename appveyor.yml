@@ -1,87 +1,23 @@
-image: Visual Studio 2017
+image: Visual Studio 2019
+
+environment:
+  ICUWIN: '%APPVEYOR_BUILD_FOLDER%\icu'
 
 install:
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - git submodule update --init --recursive
-  - curl -O https://mugen.karaokes.moe/downloads/aegisub-japan7/openssl-aegisub.zip
-  - set PATH=C:\gettext\bin;"C:\Program Files (x86)\Inno Setup 5";C:\yasm;%PATH%
-  - mkdir C:\yasm
-  - curl -o "C:\yasm\yasm.exe" http://www.tortall.net/projects/yasm/releases/yasm-1.3.0-win64.exe
-  - mkdir C:\gettext
-  - curl -L -o "C:\gettext.zip" https://github.com/vslavik/gettext-tools-windows/releases/download/v0.20.1/gettext-tools-windows-0.20.1.zip
-  - cd C:\gettext
-  - 7z x C:\gettext.zip
+  # Set paths to dependencies (based on architecture)
+  - cmd: set PYTHON_ROOT=C:\python37-x64
+  # Add necessary paths to PATH variable
+  - cmd: set PATH=%cd%;%PYTHON_ROOT%;%PYTHON_ROOT%\Scripts;%PATH%
+  # Set up the build environment
+  - cmd: set BOOST_ROOT=C:\Libraries\boost_1_73_0
+  - cmd: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64'
+  # Install meson and ninja
+  - cmd: pip install meson
+  - cmd: chdir %APPVEYOR_BUILD_FOLDER%
+  - cmd: curl -LO https://github.com/ninja-build/ninja/releases/download/v1.10.0/ninja-win.zip
+  - cmd: unzip ninja-win.zip
 
 build_script:
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - MSBuild.exe Aegisub.sln /target:BuildTasks
-  - 7z x openssl-aegisub.zip
-  - MSBuild.exe Aegisub.sln /m /p:Configuration=Release /p:Platform=x64
+  - cmd: meson --backend=ninja --buildtype release -Dicu_path=%ICUWIN% builddir
+  - cmd: ninja -C builddir
 
-after_build:
-  - curl -o "C:\aegisub-codecs.zip" https://mugen.karaokes.moe/downloads/aegisub-codecs.zip
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - msgfmt.exe -o po\ar.mo po\ar.po
-  - msgfmt.exe -o po\wxstd-ar.mo vendor\wxWidgets\locale\ar.po
-  - msgfmt.exe -o po\bg.mo po\bg.po
-  - msgfmt.exe -o po\ca.mo po\ca.po
-  - msgfmt.exe -o po\wxstd-ca.mo vendor\wxWidgets\locale\ca.po
-  - msgfmt.exe -o po\cs.mo po\cs.po
-  - msgfmt.exe -o po\wxstd-cs.mo vendor\wxWidgets\locale\cs.po
-  - msgfmt.exe -o po\da.mo po\da.po
-  - msgfmt.exe -o po\wxstd-da.mo vendor\wxWidgets\locale\da.po
-  - msgfmt.exe -o po\de.mo po\de.po
-  - msgfmt.exe -o po\wxstd-de.mo vendor\wxWidgets\locale\de.po
-  - msgfmt.exe -o po\el.mo po\el.po
-  - msgfmt.exe -o po\wxstd-el.mo vendor\wxWidgets\locale\el.po
-  - msgfmt.exe -o po\es.mo po\es.po
-  - msgfmt.exe -o po\wxstd-es.mo vendor\wxWidgets\locale\es.po
-  - msgfmt.exe -o po\eu.mo po\eu.po
-  - msgfmt.exe -o po\wxstd-eu.mo vendor\wxWidgets\locale\eu.po
-  - msgfmt.exe -o po\fa.mo po\fa.po
-  - msgfmt.exe -o po\fi.mo po\fi.po
-  - msgfmt.exe -o po\wxstd-fi.mo vendor\wxWidgets\locale\fi.po
-  - msgfmt.exe -o po\fr_FR.mo po\fr_FR.po
-  - msgfmt.exe -o po\wxstd-fr.mo vendor\wxWidgets\locale\fr.po
-  - msgfmt.exe -o po\gl.mo po\gl.po
-  - msgfmt.exe -o po\wxstd-gl_ES.mo vendor\wxWidgets\locale\gl_ES.po
-  - msgfmt.exe -o po\hu.mo po\hu.po
-  - msgfmt.exe -o po\wxstd-hu.mo vendor\wxWidgets\locale\hu.po
-  - msgfmt.exe -o po\id.mo po\id.po
-  - msgfmt.exe -o po\wxstd-id.mo vendor\wxWidgets\locale\id.po
-  - msgfmt.exe -o po\it.mo po\it.po
-  - msgfmt.exe -o po\wxstd-it.mo vendor\wxWidgets\locale\it.po
-  - msgfmt.exe -o po\ja.mo po\ja.po
-  - msgfmt.exe -o po\wxstd-ja.mo vendor\wxWidgets\locale\ja.po
-  - msgfmt.exe -o po\ko.mo po\ko.po
-  - msgfmt.exe -o po\wxstd-ko_KR.mo vendor\wxWidgets\locale\ko_KR.po
-  - msgfmt.exe -o po\nl.mo po\nl.po
-  - msgfmt.exe -o po\wxstd-nl.mo vendor\wxWidgets\locale\nl.po
-  - msgfmt.exe -o po\pl.mo po\pl.po
-  - msgfmt.exe -o po\wxstd-pl.mo vendor\wxWidgets\locale\pl.po
-  - msgfmt.exe -o po\pt_BR.mo po\pt_BR.po
-  - msgfmt.exe -o po\wxstd-pt_BR.mo vendor\wxWidgets\locale\pt_BR.po
-  - msgfmt.exe -o po\pt_PT.mo po\pt_PT.po
-  - msgfmt.exe -o po\wxstd-pt.mo vendor\wxWidgets\locale\pt.po
-  - msgfmt.exe -o po\ru.mo po\ru.po
-  - msgfmt.exe -o po\wxstd-ru.mo vendor\wxWidgets\locale\ru.po
-  - msgfmt.exe -o po\sr_RS.mo po\sr_RS.po
-  - msgfmt.exe -o po\sr_RS@latin.mo po\sr_RS@latin.po
-  - msgfmt.exe -o po\uk_UA.mo po\uk_UA.po
-  - msgfmt.exe -o po\wxstd-uk_UA.mo vendor\wxWidgets\locale\uk_UA.po
-  - msgfmt.exe -o po\vi.mo po\vi.po
-  - msgfmt.exe -o po\wxstd-vi.mo vendor\wxWidgets\locale\vi.po
-  - msgfmt.exe -o po\zh_CN.mo po\zh_CN.po
-  - msgfmt.exe -o po\wxstd-zh_CN.mo vendor\wxWidgets\locale\zh_CN.po
-  - msgfmt.exe -o po\zh_TW.mo po\zh_TW.po
-  - msgfmt.exe -o po\wxstd-zh_TW.mo vendor\wxWidgets\locale\zh_TW.po
-  - 7z x "C:\aegisub-codecs.zip"
-  - cd packages\win_installer
-  - iscc aegisub3.iss
-  - cd ..\..
-
-on_success:
-  - IF DEFINED APPVEYOR_REPO_TAG_NAME bash.exe ".ci\upload_win_installer.sh"
-
-artifacts:
-  - path: packages\win_installer\output\Aegisub-Japan7-x64.exe
