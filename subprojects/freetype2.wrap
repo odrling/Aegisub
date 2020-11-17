@@ -1,4 +1,4 @@
 [wrap-git]
 directory = freetype2
-url = https://git.savannah.gnu.org/git/freetype/freetype2.git
+url = https://git.odrling.xyz/odrling/freetype2.git
 revision = master
