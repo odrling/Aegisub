@@ -213,6 +213,7 @@
         { "command" : "help/contents" },
         {},
         { "command" : "help/website" },
+        { "command" : "help/joysound_exporter" },
         { "command" : "help/bugs" },
         {},
         { "command" : "help/irc" },

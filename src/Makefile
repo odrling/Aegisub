@@ -6,7 +6,7 @@ src_CPPFLAGS := -I$(d) -I.. -I$(d)include -I$(TOP)libaegisub/include -I$(TOP)bui
 	$(CFLAGS_PTHREAD) $(CFLAGS_FFTW3) $(CFLAGS_ICU) $(CPPFLAGS_BOOST)
 src_CXXFLAGS := $(CXXFLAGS_WX)
 src_LIBS := $(LIBS_GL) $(LIBS_PTHREAD) $(LIBS_WX) $(LIBS_FREETYPE) \
-	$(LIBS_LIBASS) $(LIBS_FONTCONFIG) $(LIBS_FFTW3)  $(LIBS_BOOST) $(LIBS_ICU)
+	$(LIBS_LIBASS) $(LIBS_FONTCONFIG) $(LIBS_FFTW3) $(LIBS_BOOST) $(LIBS_ICU)
 src_PCH := $(d)agi_pre.h
 src_INSTALLNAME := $(AEGISUB_COMMAND)
 
@@ -111,10 +111,15 @@ src_OBJ := \
 	$(d)video_provider_yuv4mpeg.o \
 	$(d)video_slider.o \
 	$(d)visual_feature.o \
-	$(LIBS_LUA) \
 	$(TOP)lib/libaegisub.a \
 	$(TOP)lib/libluabins.a \
 	$(TOP)lib/libresrc.a \
+
+ifeq (no, $(SYSTEM_LUAJIT))
+src_OBJ += $(LIBS_LUA)
+else
+src_LIBS += $(LIBS_LUA)
+endif
 
 ifeq (yes, $(BUILD_DARWIN))
 src_OBJ += $(d)font_file_lister_coretext.o

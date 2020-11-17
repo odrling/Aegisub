@@ -46,6 +46,7 @@ Name: "macros\modules\luajson"; Description: "LuaJSON"; Types: full
 Name: "dictionaries"; Description: "Spellcheck Dictionaries"; Types: full
 Name: "dictionaries\en_US"; Description: "English (US)"; Types: full
 Name: "translations"; Description: "Aegisub Translations"; Types: full
+Name: "fonts"; Description: "Bundled fonts"; Types: full
 
 [Tasks]
 Name: "startmenuicon"; Description: "{cm:StartMenuIcon}"; GroupDescription: "{cm:AdditionalIcons}"
@@ -55,6 +56,8 @@ Name: "checkforupdates"; Description: "{cm:CheckForUpdates}"; GroupDescription: 
 ; main
 DestDir: {app}; Source: ..\..\bin\aegisub{#ARCH}.exe; Flags: ignoreversion; Components: main
 DestDir: {app}; Source: license.txt; Flags: ignoreversion; Components: main
+DestDir: {app}; Source: ..\..\bin\libcrypto-1_1-x64.dll; Flags: ignoreversion; Components: main
+DestDir: {app}; Source: ..\..\bin\libssl-1_1-x64.dll; Flags: ignoreversion; Components: main
 
 [Icons]
 Name: {commonprograms}\Aegisub; Filename: {app}\aegisub{#ARCH}.exe; WorkingDir: {app}; IconIndex: 0; Tasks: startmenuicon; Comment: Create and edit subtitle files

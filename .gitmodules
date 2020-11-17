@@ -1,0 +1,3 @@
+[submodule "subprojects/japan7-fonts"]
+	path = subprojects/japan7-fonts
+	url = https://github.com/odrling/japan7-fonts.git

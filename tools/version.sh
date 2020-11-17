@@ -45,10 +45,13 @@ else
   tagged_release=0
 fi
 
+last_release=$(git describe --tags)
+
 
 new_version_h="\
 #define BUILD_GIT_VERSION_NUMBER ${git_revision}
 #define BUILD_GIT_VERSION_STRING \"${git_version_str}\"
+#define RELEASE_VERSION \"${last_release#v}\"
 #define TAGGED_RELEASE ${tagged_release}
 #define INSTALLER_VERSION \"${installer_version}\"
 #define RESOURCE_BASE_VERSION ${resource_version}"
@@ -68,7 +71,7 @@ export VERSION_SOURCE="from git"
 
 cat << EOF > "${builddir}/git_version.xml"
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <GitVersionNumber>${git_revision}</GitVersionNumber>
     <GitVersionString>${git_version_str}</GitVersionString>

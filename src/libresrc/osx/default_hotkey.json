@@ -16,10 +16,10 @@
 			"KP_8"
 		],
 		"time/length/decrease" : [
-			"KP_7"
+			"Z"
 		],
 		"time/length/increase" : [
-			"KP_9"
+			"E"
 		],
 		"time/next" : [
 			"KP_2"
@@ -28,10 +28,10 @@
 			"KP_0"
 		],
 		"time/start/decrease" : [
-			"KP_4"
+			"Shift-Z"
 		],
 		"time/start/increase" : [
-			"KP_6"
+			"Shift-E"
 		]
 	},
 	"Audio" : {
@@ -46,20 +46,20 @@
 			"Shift-G"
 		],
 		"audio/play/line" : [
-			"R"
+			"C"
 		],
 		"audio/play/selection" : [
-			"S",
-			"Space"
+			"Space",
+			"X"
 		],
 		"audio/play/selection/after" : [
-			"W"
+			"F"
 		],
 		"audio/play/selection/before" : [
 			"Q"
 		],
 		"audio/play/selection/begin" : [
-			"E"
+			"S"
 		],
 		"audio/play/selection/end" : [
 			"D"
@@ -71,10 +71,10 @@
 			"B"
 		],
 		"audio/scroll/left" : [
-			"A"
+			"W"
 		],
 		"audio/scroll/right" : [
-			"F"
+			"V"
 		],
 		"audio/stop" : [
 			"H"
@@ -98,12 +98,12 @@
 			"Shift-KP_Add"
 		],
 		"time/next" : [
-			"Right",
-			"X"
+			"R",
+			"Right"
 		],
 		"time/prev" : [
-			"Left",
-			"Z"
+			"A",
+			"Left"
 		]
 	},
 	"Default" : {
@@ -116,6 +116,33 @@
 		"app/toggle/toolbar" : [
 			"Ctrl-Alt-T"
 		],
+		"automation/lua/duetto-meika/Deduetto Meika" : [
+			"Ctrl-Shift-D"
+		],
+		"automation/lua/duetto-meika/Duetto Meika" : [
+			"Ctrl-D"
+		],
+		"automation/lua/kara-templater/Apply karaoke template" : [
+			"Ctrl-Alt-Shift-K"
+		],
+		"automation/lua/karaoke-adjust-1sec/Karaoke 1sec adjust lead-in" : [
+			"Ctrl-K"
+		],
+		"automation/lua/karaoke-adjust-1sec/Mugenizer" : [
+			"Ctrl-Shift-K"
+		],
+		"automation/lua/karaoke-split/Split karaoke line" : [
+			"Ctrl-Shift-P"
+		],
+		"automation/lua/ua.ChangeCase/Change Case" : [
+			"Ctrl-Shift-C"
+		],
+		"automation/lua/ua.HYDRA/HYDRA" : [
+			"Ctrl-Shift-H"
+		],
+		"automation/lua/ua.ScriptCleanup/Script Cleanup" : [
+			"Ctrl-Shift-O"
+		],
 		"edit/find_replace" : [
 			"Ctrl-Alt-F"
 		],
@@ -126,19 +153,19 @@
 			"Ctrl-X"
 		],
 		"edit/line/delete" : [
-			"Ctrl-Backspace"
-		],
-		"edit/line/duplicate/shift" : [
-			"Ctrl-D"
-		],
-		"edit/line/duplicate/shift_back" : [
-			"Ctrl-Shift-D"
+			"Ctrl-Delete"
 		],
 		"edit/line/paste" : [
 			"Ctrl-V"
 		],
 		"edit/line/paste/over" : [
 			"Ctrl-Shift-V"
+		],
+		"edit/line/split/after" : [
+			"Ctrl-Alt-Shift-D"
+		],
+		"edit/line/split/before" : [
+			"Ctrl-Alt-D"
 		],
 		"edit/redo" : [
 			"Ctrl-Shift-Z"

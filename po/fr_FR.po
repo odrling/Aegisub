@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aegisub 3.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-24 16:41+0200\n"
+"POT-Creation-Date: 2014-07-01 10:53-0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Cirrus Wazza <cirrus_wazza@gmx.fr>\n"
 "Language-Team: Céréales Killer <cerkil@free.fr>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Bookmarks: -1,596,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 2.2.4\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../src/dialog_shift_times.cpp:92
@@ -3188,6 +3188,18 @@ msgstr "Site &web"
 #: ../src/command/help.cpp:118
 msgid "Website"
 msgstr "Site web"
+
+#: ../src/command/help.cpp
+msgid "&Joysound Exporter"
+msgstr "&Joysound Exporter"
+
+#: ../src/command/help.cpp
+msgid "Joysound Exporter"
+msgstr "Joysound Exporter"
+
+#: ../src/command/help.cpp
+msgid "Export karaoke from Joysound"
+msgstr "Exporter un karaoke Joysound"
 
 #: ../src/command/help.cpp:119
 msgid "Visit Aegisub's official website"

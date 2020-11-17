@@ -82,5 +82,10 @@ public:
 	/// Set the tag type for all karaoke tags in this line
 	void SetTagType(std::string const& new_type);
 
+	/// Get syllab's text stripped of k tag
+	std::string GetStrippedText(int syl_idx) const;
+	/// Set syllab's text stripped of k tag
+	void SetStrippedText(int syl_idx, std::string new_text);
+
 	DEFINE_SIGNAL_ADDERS(AnnounceSyllablesChanged, AddSyllablesChangedListener)
 };

@@ -3069,6 +3069,18 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
+#: ../src/command/help.cpp
+msgid "&Joysound Exporter"
+msgstr ""
+
+#: ../src/command/help.cpp
+msgid "Joysound Exporter"
+msgstr ""
+
+#: ../src/command/help.cpp
+msgid "Export karaoke from Joysound"
+msgstr ""
+
 #: ../src/command/help.cpp:119
 msgid "Visit Aegisub's official website"
 msgstr ""

@@ -46,3 +46,5 @@ bool GetIsOfficialRelease();
 const char *GetVersionNumber();
 /// Get SVN revision
 int GetSVNRevision();
+/// Get Release Version
+const char *GetReleaseVersion();

@@ -110,7 +110,21 @@ struct help_website final : public Command {
 		wxLaunchDefaultBrowser("http://www.aegisub.org/", wxBROWSER_NEW_WINDOW);
 	}
 };
+
+struct help_joysound_export final : public Command {
+	CMD_NAME("help/joysound_exporter")
+	CMD_ICON(website_button)
+	STR_MENU("&Joysound Exporter")
+	STR_DISP("Joysound Exporter")
+	STR_HELP("Export karaoke from Joysound")
+
+	void operator()(agi::Context *) override {
+		wxLaunchDefaultBrowser("https://joysound.rhiobet.ninja/", wxBROWSER_NEW_WINDOW);
+	}
+};
+
 }
+
 
 namespace cmd {
 	void init_help() {
@@ -119,5 +133,6 @@ namespace cmd {
 		reg(agi::make_unique<help_irc>());
 		reg(agi::make_unique<help_video>());
 		reg(agi::make_unique<help_website>());
+		reg(agi::make_unique<help_joysound_export>());
 	}
 }

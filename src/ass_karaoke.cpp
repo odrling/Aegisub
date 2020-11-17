@@ -262,3 +262,11 @@ void AssKaraoke::SetLineTimes(int start_time, int end_time) {
 	}
 	syls[idx].duration = end_time - syls[idx].start_time;
 }
+
+std::string AssKaraoke::GetStrippedText(int syl_idx) const {
+	return syls[syl_idx].text;
+}
+
+void AssKaraoke::SetStrippedText(int syl_idx, std::string new_text) {
+	syls[syl_idx].text = new_text;
+}

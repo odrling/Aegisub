@@ -22,8 +22,8 @@
 
 	"Audio" : {
 		"Auto" : {
-			"Commit" : false,
-			"Focus" : false,
+			"Commit" : true,
+			"Focus" : true,
 			"Scroll" : true
 		},
 		"Cache" : {
@@ -49,7 +49,7 @@
 			"Waveform Style" : 0
 		},
 		"Downmixer" : "ConvertToMono",
-		"Drag Timing" : true,
+		"Drag Timing" : false,
 		"Inactive Lines Display Mode" : 3,
 		"Karaoke" : {
 			"Font Face" : "Verdana",
@@ -60,7 +60,7 @@
 			"OUT" : 350
 		},
 		"Line Boundaries Thickness" : 2,
-		"Link" : true,
+		"Link" : false,
 		"Lock Scroll on Cursor" : false,
 		"Medusa Timing Hotkeys" : false,
 		"Next Line on Commit" : true,
@@ -76,7 +76,7 @@
 		},
 		"Snap" : {
 			"Distance" : 8,
-			"Enable" : true
+			"Enable" : false
 		},
 		"Spectrum" : true,
 		"Start Drag Sensitivity" : 8,
@@ -366,7 +366,7 @@
 		},
 		"Character Limit" : 40,
 		"Default Resolution" : {
-			"Auto" : true,
+			"Auto" : false,
 			"Height" : 720,
 			"Width" : 1280
 		},
@@ -428,7 +428,8 @@
 	},
 
 	"Timing" : {
-		"Default Duration" : 3000
+		"Default Duration" : 3000,
+		"Tap To Time" : false
 	},
 
 	"Tool" : {
@@ -606,7 +607,7 @@
 		"Open Audio" : true,
 		"Overscan Mask" : false,
 		"Provider" : "ffmpegsource",
-		"Script Resolution Mismatch" : 1,
+		"Script Resolution Mismatch" : 0,
 		"Slider" : {
 			"Fast Jump Step" : 10,
 			"Show Keyframes" : true
