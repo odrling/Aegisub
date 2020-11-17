@@ -18,6 +18,6 @@ install:
   - cmd: unzip ninja-win.zip
 
 build_script:
-  - cmd: meson --backend=ninja --buildtype release -Dicu_path=%ICUWIN% builddir
+  - cmd: meson -Ddefault_library=static --backend=ninja --buildtype release -Dicu_path=%ICUWIN% builddir
   - cmd: ninja -C builddir
 
