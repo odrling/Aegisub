@@ -1,0 +1,16 @@
+Source: aegisub-japan7
+Section: video
+Priority: optional
+Maintainer: odrling <florianbadie@odrling.xyz>
+Build-Depends: debhelper, dh-autoreconf, intltool, libasound2-dev [linux-any], libass-dev, libboost-dev, libboost-chrono-dev, libboost-filesystem-dev, libboost-locale-dev, libboost-regex-dev, libboost-system-dev, libboost-thread-dev, libffms2-dev (>= 2.19), libfftw3-dev, libfontconfig1-dev, libfreetype6-dev, libgl1-mesa-dev | libgl-dev, libglu1-mesa-dev | libglu-dev, libhunspell-dev, libicu-dev, libpulse-dev, libwxgtk3.0-dev, libssl-dev
+Standards-Version: 4.1.4
+Homepage: https://github.com/odrling/Aegisub
+
+Package: aegisub-japan7
+Architecture: any
+Multi-Arch: foreign
+Conflicts: aegisub
+Depends: ${misc:Depends}, ${shlibs:Depends}, libasound2, libass9, libatomic1, libboost-filesystem1.67.0, libboost-locale1.67.0, libboost-regex1.67.0, libboost-system1.67.0, libboost-thread1.67.0, libc6, libffms2-4 (>= 2.19), libfftw3-double3, libgcc1 (>= 1:4.2), libgl1 | libgl1-mesa-glx, libhunspell-1.7-0, libicu63, libpulse0, libstdc++6, libwxbase3.0-0v5, libwxgtk3.0-0v5, zlib1g
+Description: advanced subtitle editor
+  Originally created as tool to make typesetting, particularly in anime fansubs, a less painful experience, Aegisub has grown into a fully fledged, highly customizable subtitle editor.
+  It features a lot of convenient tools to help you with timing, typesetting, editing and translating subtitles, as well as a powerful scripting environment called Automation (originally mostly intended for creating karaoke effects, Automation can now be used much else, including creating macros and various other convenient tools). 

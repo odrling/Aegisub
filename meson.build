@@ -51,6 +51,8 @@ if get_option('credit') != ''
     conf.set_quoted('BUILD_CREDIT', get_option('credit'))
 endif
 conf.set('WITH_UPDATE_CHECKER', get_option('enable_update_checker'))
+conf.set_quoted('UPDATE_CHECKER_SERVER', get_option('update_server'))
+conf.set_quoted('UPDATE_CHECKER_BASE_URL', get_option('update_url'))
 
 deps = []
 deps_inc = []
@@ -78,12 +80,21 @@ endif
 deps += dependency('libass', version: '>=0.9.7',
                    fallback: ['libass', 'libass_dep'])
 
+openssl_dep = []
 boost_modules = ['chrono', 'filesystem', 'thread', 'locale', 'regex']
 if not get_option('local_boost')
-    boost_dep = dependency('boost', version: '>=1.50.0',
-                            modules: boost_modules + ['system'],
-                            required: false,
-                            static: get_option('default_library') == 'static')
+    if get_option('enable_update_checker') and not get_option('local_boost')
+        boost_dep = dependency('boost', version: '>=1.66.0',
+                                modules: boost_modules + ['system'],
+                                required: false,
+                                static: get_option('default_library') == 'static')
+        openssl_dep = dependency('openssl')
+    else
+        boost_dep = dependency('boost', version: '>=1.50.0',
+                                modules: boost_modules + ['system'],
+                                required: false,
+                                static: get_option('default_library') == 'static')
+    endif
 endif
 
 if get_option('local_boost') or not boost_dep.found()
@@ -98,6 +109,8 @@ deps += boost_dep
 if host_machine.system() == 'windows'
     conf.set('BOOST_USE_WINDOWS_H', '1')
 endif
+
+deps += openssl_dep
 
 deps += dependency('zlib')
 

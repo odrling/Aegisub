@@ -2,12 +2,19 @@ automation_dir = dataroot / 'automation'
 
 install_data(
     'autoload/cleantags-autoload.lua',
-    'autoload/karaoke-auto-leadin.lua',
+    'autoload/duetto-meika.lua',
     'autoload/kara-templater.lua',
-    'autoload/macro-1-edgeblur.lua',
-    'autoload/macro-2-mkfullwitdh.lua',
+    'autoload/karaoke-adjust-1sec.lua',
+    'autoload/karaoke-split.lua',
     'autoload/select-overlaps.moon',
-    'autoload/strip-tags.lua',
+    'autoload/ua.BlurAndGlow.lua',
+    'autoload/ua.ChangeCase.lua',
+    'autoload/ua.Colorize.lua',
+    'autoload/ua.Cycles.lua',
+    'autoload/ua.FadeWorks.lua',
+    'autoload/ua.HYDRA.lua',
+    'autoload/ua.ScriptCleanup.lua',
+    'autoload/unkf.lua',
     install_dir: automation_dir / 'autoload')
 
 install_data(
