@@ -72,7 +72,7 @@
 #define	MAXCLUSTER	      (64*1048576)
 #define	MAXFRAME	      (4*1048576)
 
-#ifdef WIN32
+#if defined(WIN32) && !defined(__MINGW32__)
 #define	LL(x)	x##i64
 #define	ULL(x)	x##ui64
 #else

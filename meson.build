@@ -1,7 +1,7 @@
 project('Aegisub', ['c', 'cpp'],
         license: 'BSD-3-Clause',
         meson_version: '>=0.55.0',
-        default_options: ['cpp_std=c++11', 'b_lto=true', 'buildtype=debugoptimized'],
+        default_options: ['cpp_std=c++11', 'buildtype=debugoptimized'],
         version: '3.3.3')
 
 cmake = import('cmake')
@@ -14,7 +14,7 @@ if host_machine.system() == 'windows'
     endif
 endif
 
-if host_machine.system() == 'windows'
+if host_machine.system() == 'windows' 
     version_sh = find_program('tools/version.ps1')
 else
     version_sh = find_program('tools/version.sh')
@@ -68,13 +68,25 @@ elif host_machine.system() != 'windows'
     deps += dependency('fontconfig')
 endif
 
+
 cxx = meson.get_compiler('cpp')
 cc = meson.get_compiler('c')
 deps += cc.find_library('m', required: false)
 deps += cc.find_library('dl', required: false)
+
 if not cxx.check_header('iconv.h')
     iconv_sp = subproject('iconv') # this really needs to be replaced with a proper port
     deps += iconv_sp.get_variable('libiconv_dep')
+endif
+
+if host_machine.system() == 'windows'
+    deps += cc.find_library('ws2_32', required: true)
+    deps += cc.find_library('bcrypt', required: true)
+    deps += cc.find_library('iconv', required: true)
+endif
+
+if not (host_machine.system() == 'windows' and cc.get_id() == 'gcc')
+    add_project_arguments('-Db_lto=true', language: 'cpp')  # lto breaks build for mingw
 endif
 
 deps += dependency('libass', version: '>=0.9.7',
@@ -152,6 +164,10 @@ else
         endif
     endif
 endif
+
+# maybe mingw needs this
+conf.set('UNICODE', '1')
+conf.set('_UNICODE', '1')
 
 deps += dependency('icu-uc', version: '>=4.8.1.1')
 deps += dependency('icu-i18n', version: '>=4.8.1.1')

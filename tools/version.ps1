@@ -68,6 +68,7 @@ if ($exactGitTag -match $semVerMatch) {
 
 $version['BUILD_GIT_VERSION_NUMBER'] = $gitRevision
 $version['BUILD_GIT_VERSION_STRING'] = $gitVersionString
+$version['RELEASE_VERSION'] = $gitVersionString
 
 $version.GetEnumerator() | %{
   $type = $_.Value.GetType()
@@ -91,10 +92,12 @@ $gitVersionXml = [xml]@'
   <PropertyGroup>
     <GitVersionNumber></GitVersionNumber>
     <GitVersionString></GitVersionString>
+    <ReleaseVersion></ReleaseVersion>
   </PropertyGroup>
 </Project>
 '@
 
 $gitVersionXml.Project.PropertyGroup.GitVersionNumber = $gitRevision.ToString()
 $gitVersionXml.Project.PropertyGroup.GitVersionString = $gitVersionString
+$gitVersionXml.Project.PropertyGroup.ReleaseVersion = $gitVersionString
 $gitVersionXml.Save($gitVersionXmlPath)

@@ -39,6 +39,12 @@ std::string ErrorString(int error) {
 	return str;
 }
 
+#ifdef __MINGW32__
+
+void SetThreadName(LPCSTR szThreadName) {}
+
+#else
+
 #define MS_VC_EXCEPTION 0x406d1388
 
 /// Parameters for setting the thread name
@@ -60,6 +66,7 @@ void SetThreadName(LPCSTR szThreadName) {
 	}
 	__except (EXCEPTION_CONTINUE_EXECUTION) {}
 }
+#endif
 
 void sleep_for(int ms) {
 	std::this_thread::sleep_for(std::chrono::milliseconds(ms));
