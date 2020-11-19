@@ -76,18 +76,20 @@ begin
   CurStepChangedMigration(CurStep);
 
   if CurStep = ssPostInstall then
-  begin
-    if IsTaskSelected('checkforupdates') then
-      Updates := 'true'
-    else
-      Updates := 'false';
+    begin
+      if IsTaskSelected('checkforupdates') then
+        Updates := 'true';
+      else
+        Updates := 'false';
+      endif;
 
-    SaveStringToFile(
-      ExpandConstant('{app}\installer_config.json'),
-      FmtMessage('{"App": {"Auto": {"Check For Updates": %1}, "First Start": false, "Language": "%2"}}', [
-        Updates,
-        ExpandConstant('{language}')]),
-      False);
-  end;
+      SaveStringToFile(
+        ExpandConstant('{app}\installer_config.json'),
+        FmtMessage('{"App": {"Auto": {"Check For Updates": %1}, "First Start": false, "Language": "%2"}}', [
+          Updates,
+          ExpandConstant('{language}')]),
+        False);
+    end;
+  endif;
 end;
 

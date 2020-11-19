@@ -19,6 +19,10 @@ jobs:
             openssl
             ninja
             nasm
+            gettext
+            curl
+            unzip
+            tree
             mingw-w64-x86_64-boost
             mingw-w64-x86_64-wxWidgets
             mingw-w64-x86_64-cmake
@@ -27,9 +31,24 @@ jobs:
             mingw-w64-x86_64-ffms2
             mingw-w64-x86_64-glib2
             mingw-w64-x86_64-python-pip
-      - name: CI-Build
+
+      - name: Install Meson
         run: |
           MSYSTEM= pip install meson
+
+      - name: Build Aegisub
+        run: |
           MSYSTEM= meson builddir -Ddefault_library=static
           ninja -C builddir
 
+      - name: Create installer
+        run: |
+          tree
+          curl -o "aegisub-codecs.zip" https://mugen.karaokes.moe/downloads/aegisub-codecs.zip
+          for i in po/*.po; do
+            msgfmt -o $(basename $i .po).mo $i
+          done
+          cd packages/win_installer
+          curl -o "innosetup.zip" https://hikari.butaishoujo.moe/b/52a01bb4/innosetup.zip
+          unzip innosetup.zip
+          innosetup/ISCC.exe aegisub3.iss
