@@ -81,6 +81,8 @@ typedef	long			PixOffset;
   #define _RPT4(a,b,c,d,e,f) ((void)0)
 
   #define _ASSERTE(x) assert(x)
+  // not sure why it's used but not defined, so...
+  #define _ASSERT(x) assert(x)
   #include <assert.h>
 #endif
 

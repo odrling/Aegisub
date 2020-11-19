@@ -211,6 +211,15 @@ foreach opt: opt_src
     endif
 endforeach
 
+# avisynth for windows build
+if host_machine.system() == 'windows'
+    aegisub_src += [
+        'audio_provider_avs.cpp',
+        'video_provider_avs.cpp',
+    ]
+endif
+    
+
 aegisub_cpp_pch = ['include/agi_pre.h']
 aegisub_c_pch = ['include/agi_pre_c.h']
 
