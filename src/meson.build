@@ -211,12 +211,30 @@ foreach opt: opt_src
     endif
 endforeach
 
-# avisynth for windows build
 if host_machine.system() == 'windows'
-    aegisub_src += [
-        'audio_provider_avs.cpp',
-        'video_provider_avs.cpp',
-    ]
+    res_inc = include_directories(
+        'bitmaps/windows',
+    )
+
+    res_dep_files = files(
+        'bitmaps/windows/icon.ico',
+        'bitmaps/windows/eyedropper.cur',
+    )
+  
+    raw_wx_windres_args = wx_dep.get_variable(configtool : 'rescomp').split()
+    wx_windres_args = []
+    foreach arg : raw_wx_windres_args
+        if arg != 'windres'
+            wx_windres_args += arg
+        endif
+    endforeach
+    windows = import('windows')
+
+    aegisub_src += windows.compile_resources('res/res.rc',
+        args : wx_windres_args,
+        depend_files : res_dep_files,
+        include_directories : [res_inc, version_inc]
+    )
 endif
     
 

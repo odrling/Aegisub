@@ -21,9 +21,9 @@ eyedropper_cursor CURSOR "../bitmaps/windows/eyedropper.cur"
 
 // We supply the manifest ourselves
 #define wxUSE_NO_MANIFEST 1
-#include "wx/msw/wx.rc"
+#include <wx/msw/wx.rc>
 
-#include "../../build/git_version.h"
+#include "git_version.h"
 #include <Winver.h>
 
 #ifdef _DEBUG
@@ -53,8 +53,8 @@ eyedropper_cursor CURSOR "../bitmaps/windows/eyedropper.cur"
 #endif
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION    	RESOURCE_BASE_VERSION, BUILD_GIT_VERSION_NUMBER
-PRODUCTVERSION 	RESOURCE_BASE_VERSION, 0
+FILEVERSION    	0, BUILD_GIT_VERSION_NUMBER
+PRODUCTVERSION 	0, 0
 FILEFLAGSMASK  	VS_FFI_FILEFLAGSMASK
 FILEFLAGS      	(AGI_RC_FLAG_DEBUG|AGI_RC_FLAG_PRERELEASE)
 FILEOS         	VOS__WINDOWS32

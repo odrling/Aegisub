@@ -25,24 +25,23 @@ jobs:
             mingw-w64-x86_64-ninja
             mingw-w64-x86_64-meson
             mingw-w64-x86_64-cmake
-            mingw-w64-x86_64-python-pip
-
-      - name: Irrational Python things
-        run: |
-          MSYSTEM= pip install --upgrade certifi
+            mingw-w64-x86_64-wxWidgets
+            mingw-w64-x86_64-boost
+            mingw-w64-x86_64-libass
+            mingw-w64-x86_64-glib2
+            mingw-w64-x86_64-ffms2
+            mingw-w64-x86_64-icu
+            mingw-w64-x86_64-imagemagick
 
       - name: Build Aegisub
         run: |
-          MSYSTEM= meson builddir -Dbuildtype=release -Ddefault_library=static
+          meson builddir -Dbuildtype=release -Ddefault_library=static
           ninja -C builddir
 
       - name: Create installer
         run: |
           tree
           curl -o "aegisub-codecs.zip" https://mugen.karaokes.moe/downloads/aegisub-codecs.zip
-          for i in po/*.po; do
-            msgfmt -o $(basename $i .po).mo $i
-          done
           cd packages/win_installer
           curl -o "innosetup.zip" https://hikari.butaishoujo.moe/b/52a01bb4/innosetup.zip
           unzip innosetup.zip

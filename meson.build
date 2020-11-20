@@ -123,7 +123,6 @@ if host_machine.system() == 'windows'
 endif
 
 deps += openssl_dep
-
 deps += dependency('zlib')
 
 wx_dep = dependency('wxWidgets', version: '>=3.0.0',
