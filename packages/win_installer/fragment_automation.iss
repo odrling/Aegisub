@@ -35,45 +35,45 @@
 ; This file declares all installables related to Aegisub Automation
 
 [Files]
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\cleantags-autoload.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\kara-templater.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\select-overlaps.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\cleantags-autoload.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\duetto-meika.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\karaoke-adjust-1sec.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\karaoke-split.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\kara-templater.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\ua.BlurAndGlow.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\ua.ChangeCase.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\ua.Colorize.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\ua.Cycles.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\ua.FadeWorks.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\ua.HYDRA.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\ua.ScriptCleanup.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
-DestDir: {app}\automation\autoload; Source: ..\..\automation\autoload\unkf.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\cleantags-autoload.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\kara-templater.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\select-overlaps.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\cleantags-autoload.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\duetto-meika.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\karaoke-adjust-1sec.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\karaoke-split.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\kara-templater.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\ua.BlurAndGlow.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\ua.ChangeCase.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\ua.Colorize.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\ua.Cycles.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\ua.FadeWorks.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\ua.HYDRA.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\ua.ScriptCleanup.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
+DestDir: {app}\automation\autoload; Source: install\share\aegisub\automation\autoload\unkf.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\bundled
 
 
-DestDir: {app}\automation\demos; Source: ..\..\automation\demos\future-windy-blur.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\demos
-DestDir: {app}\automation\demos; Source: ..\..\automation\demos\raytracer.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\demos
+DestDir: {app}\automation\demos; Source: install\share\aegisub\automation\demos\future-windy-blur.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\demos
+DestDir: {app}\automation\demos; Source: install\share\aegisub\automation\demos\raytracer.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: macros\demos
 
-DestDir: {app}\automation\include\aegisub; Source: ..\..\automation\include\aegisub\argcheck.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include\aegisub; Source: ..\..\automation\include\aegisub\clipboard.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include\aegisub; Source: ..\..\automation\include\aegisub\ffi.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include\aegisub; Source: ..\..\automation\include\aegisub\lfs.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include\aegisub; Source: ..\..\automation\include\aegisub\re.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include\aegisub; Source: ..\..\automation\include\aegisub\unicode.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include\aegisub; Source: ..\..\automation\include\aegisub\util.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include\aegisub; Source: install\share\aegisub\automation\include\aegisub\argcheck.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include\aegisub; Source: install\share\aegisub\automation\include\aegisub\clipboard.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include\aegisub; Source: install\share\aegisub\automation\include\aegisub\ffi.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include\aegisub; Source: install\share\aegisub\automation\include\aegisub\lfs.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include\aegisub; Source: install\share\aegisub\automation\include\aegisub\re.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include\aegisub; Source: install\share\aegisub\automation\include\aegisub\unicode.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include\aegisub; Source: install\share\aegisub\automation\include\aegisub\util.moon; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
 
-DestDir: {app}\automation\include; Source: ..\..\automation\include\cleantags.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include; Source: ..\..\automation\include\clipboard.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include; Source: ..\..\automation\include\karaskel.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include; Source: ..\..\automation\include\karaskel-auto4.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include; Source: ..\..\automation\include\lfs.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include; Source: ..\..\automation\include\moonscript.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include; Source: ..\..\automation\include\re.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include; Source: ..\..\automation\include\unicode.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include; Source: ..\..\automation\include\utils.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
-DestDir: {app}\automation\include; Source: ..\..\automation\include\utils-auto4.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include; Source: install\share\aegisub\automation\include\cleantags.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include; Source: install\share\aegisub\automation\include\clipboard.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include; Source: install\share\aegisub\automation\include\karaskel.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include; Source: install\share\aegisub\automation\include\karaskel-auto4.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include; Source: install\share\aegisub\automation\include\lfs.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include; Source: install\share\aegisub\automation\include\moonscript.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include; Source: install\share\aegisub\automation\include\re.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include; Source: install\share\aegisub\automation\include\unicode.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include; Source: install\share\aegisub\automation\include\utils.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
+DestDir: {app}\automation\include; Source: install\share\aegisub\automation\include\utils-auto4.lua; Flags: ignoreversion overwritereadonly uninsremovereadonly; Attribs: readonly; Components: main
 
 ; DepCtrl
 #ifdef DEPCTRL

@@ -32,7 +32,7 @@
 ; Contact: mailto:nielsm@indvikleren.dk
 ;
 
-#define ARCH 64
+#define ARCH
 
 #include "fragment_setupbase.iss"
 #include "fragment_strings.iss"
@@ -45,14 +45,15 @@ ArchitecturesInstallIn64BitMode=x64
 ArchitecturesAllowed=x64
 
 #include "fragment_mainprogram.iss"
+; #include "fragment_codecs.iss"
 #include "fragment_associations.iss"
-#include "fragment_codecs.iss"
 #include "fragment_automation.iss"
-#include "fragment_translations.iss"
+; #include "fragment_translations.iss"
 #include "fragment_spelling.iss"
 #include "fragment_fonts.iss"
 #ifdef DEPCTRL
 #include "fragment_runtimes.iss"
+#endif
 
 [Code]
 #include "fragment_shell_code.iss"
@@ -76,20 +77,18 @@ begin
   CurStepChangedMigration(CurStep);
 
   if CurStep = ssPostInstall then
-    begin
-      if IsTaskSelected('checkforupdates') then
-        Updates := 'true';
-      else
-        Updates := 'false';
-      endif;
+  begin
+    if IsTaskSelected('checkforupdates') then
+      Updates := 'true'
+    else
+      Updates := 'false';
 
-      SaveStringToFile(
-        ExpandConstant('{app}\installer_config.json'),
-        FmtMessage('{"App": {"Auto": {"Check For Updates": %1}, "First Start": false, "Language": "%2"}}', [
-          Updates,
-          ExpandConstant('{language}')]),
-        False);
-    end;
-  endif;
+    SaveStringToFile(
+      ExpandConstant('{app}\installer_config.json'),
+      FmtMessage('{"App": {"Auto": {"Check For Updates": %1}, "First Start": false, "Language": "%2"}}', [
+        Updates,
+        ExpandConstant('{language}')]),
+      False);
+  end;
 end;
 

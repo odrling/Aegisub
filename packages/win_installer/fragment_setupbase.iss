@@ -51,7 +51,7 @@ AllowNoIcons=true
 OutputDir=output
 Compression=lzma/ultra64
 SolidCompression=true
-MinVersion=0,5.0
+MinVersion=0,6.0
 ShowLanguageDialog=yes
 LanguageDetectionMethod=none
 DisableProgramGroupPage=yes
@@ -74,11 +74,9 @@ Name: "ca"; MessagesFile: "compiler:Languages\Catalan.isl"
 Name: "cz"; MessagesFile: "compiler:Languages\Czech.isl"
 Name: "da"; MessagesFile: "compiler:Languages\Danish.isl"
 Name: "de"; MessagesFile: "compiler:Languages\German.isl"
-Name: "el"; MessagesFile: "compiler:Languages\Greek.isl"
 Name: "es"; MessagesFile: "compiler:Languages\Spanish.isl"
 Name: "fi"; MessagesFile: "compiler:Languages\Finnish.isl"
 Name: "fr_FR"; MessagesFile: "compiler:Languages\French.isl"
-Name: "hu"; MessagesFile: "compiler:Languages\Hungarian.isl"
 Name: "it"; MessagesFile: "compiler:Languages\Italian.isl"
 Name: "ja"; MessagesFile: "compiler:Languages\Japanese.isl"
 Name: "nl"; MessagesFile: "compiler:Languages\Dutch.isl"
@@ -86,8 +84,6 @@ Name: "pl"; MessagesFile: "compiler:Languages\Polish.isl"
 Name: "pt_BR"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 Name: "pt_PT"; MessagesFile: "compiler:Languages\Portuguese.isl"
 Name: "ru"; MessagesFile: "compiler:Languages\Russian.isl"
-Name: "sr_RS"; MessagesFile: "compiler:Languages\SerbianCyrillic.isl"
-Name: "sr_RS_latin"; MessagesFile: "compiler:Languages\SerbianLatin.isl"
 Name: "uk_UA"; MessagesFile: "compiler:Languages\Ukrainian.isl"
 
 [Files]

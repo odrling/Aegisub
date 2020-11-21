@@ -34,8 +34,8 @@
 
 [Files]
 ; Avisynth
-DestDir: {app}; Source: ..\..\bin\devil.dll; Flags: ignoreversion; Components: main
-DestDir: {app}; Source: ..\..\bin\avisynth.dll; Flags: ignoreversion; Components: main
-DestDir: {app}; Source: ..\..\bin\DirectShowSource.dll; Flags: ignoreversion; Components: main
+DestDir: {app}; Source: bin\devil.dll; Flags: ignoreversion; Components: main
+DestDir: {app}; Source: bin\avisynth.dll; Flags: ignoreversion; Components: main
+DestDir: {app}; Source: bin\DirectShowSource.dll; Flags: ignoreversion; Components: main
 ; VSFilter
-DestDir: {app}\csri; Source: ..\..\bin\csri\xy-vsfilter-aegisub64.dll; Flags: ignoreversion; Components: main
+DestDir: {app}\csri; Source: bin\csri\xy-vsfilter-aegisub64.dll; Flags: ignoreversion; Components: main

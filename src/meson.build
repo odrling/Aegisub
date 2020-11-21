@@ -212,6 +212,13 @@ foreach opt: opt_src
 endforeach
 
 if host_machine.system() == 'windows'
+    # avisynth
+    # aegisub_src += [
+    #     'audio_provider_avs.cpp',
+    #     'video_provider_avs.cpp',
+    # ]
+
+    # resources
     res_inc = include_directories(
         'bitmaps/windows',
     )

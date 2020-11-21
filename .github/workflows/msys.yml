@@ -40,9 +40,28 @@ jobs:
 
       - name: Create installer
         run: |
-          tree
-          curl -o "aegisub-codecs.zip" https://mugen.karaokes.moe/downloads/aegisub-codecs.zip
+          DESTDIR=$PWD/builddir/installdir meson install --no-rebuild -C builddir
           cd packages/win_installer
-          curl -o "innosetup.zip" https://hikari.butaishoujo.moe/b/52a01bb4/innosetup.zip
+          curl -o "innosetup.zip" https://hikari.butaishoujo.moe/b/acc8d97c/innosetup.zip
           unzip innosetup.zip
+          curl -o "aegisub-codecs.zip" https://mugen.karaokes.moe/downloads/aegisub-codecs.zip
+          unzip aegisub-codecs.zip
+          mkdir Amaranth
+          cd Amaranth
+          curl -o "Amaranth.zip" https://hikari.butaishoujo.moe/b/a416196e/Amaranth.zip
+          unzip Amaranth.zip
+          cd ..
+          ln -s ../../builddir/installdir/a/_temp/msys/msys64/mingw64 install
+          ldd install/bin/aegisub
+          mkdir libs
+          for l in $(ldd install/bin/aegisub | grep -o '=>.*' | cut -d' '  -f2); do
+              echo $l
+              cp $l libs/
+          done
+          tree
           innosetup/ISCC.exe aegisub3.iss
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Aegisub-Japan7-x64.exe
+          path: packages\win_installer\output\Aegisub-Japan7-x64.exe
