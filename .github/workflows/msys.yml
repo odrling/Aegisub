@@ -35,7 +35,7 @@ jobs:
 
       - name: Build Aegisub
         run: |
-          meson builddir -Dbuildtype=release -Ddefault_library=static
+          meson builddir -Ddefault_library=static
           ninja -C builddir
 
       - name: Create installer
