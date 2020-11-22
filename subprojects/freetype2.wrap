@@ -4,4 +4,4 @@ url = https://git.savannah.gnu.org/git/freetype/freetype2.git
 revision = master
 
 [provide]
-dependency_names = freetype_dep
+freetype = freetype2_dep

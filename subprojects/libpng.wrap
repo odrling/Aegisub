@@ -9,4 +9,3 @@ patch_hash = 6c9f32fd9150b3a96ab89be52af664e32207e10aa9f5fb9aa015989ee2dd7100
 
 [provide]
 libpng = libpng_dep
-
