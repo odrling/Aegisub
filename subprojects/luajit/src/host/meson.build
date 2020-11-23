@@ -11,7 +11,7 @@ endif
 dynasm_dasc = files('../vm_@0@.dasc'.format(dynasm_arch))
 dasm = [minilua, files('../../dynasm/dynasm.lua')]
 
-if cc.get_id() == 'msvc'
+if host_machine.system() == 'windows'
     # the cl.exe preprocessor seemingly removes/expands macros, so hardcode flags
     dasm += ['-D', 'WIN', '-D', 'JIT', '-D', 'FFI']
     if host_machine.cpu_family() == 'x86_64'
