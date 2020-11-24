@@ -11,7 +11,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          brew install meson ninja
+          brew install meson ninja libass
 
       - name: Build Aegisub
         run: |
