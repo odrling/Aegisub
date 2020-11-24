@@ -1,6 +1,6 @@
 project('Aegisub', ['c', 'cpp'],
         license: 'BSD-3-Clause',
-        meson_version: '>=0.55.0',
+        meson_version: '>=0.56.0',
         default_options: ['cpp_std=c++11', 'buildtype=debugoptimized'],
         version: '3.3.3')
 
@@ -14,17 +14,48 @@ if host_machine.system() == 'windows'
     endif
 endif
 
-if host_machine.system() == 'windows' 
-    version_sh = find_program('tools/version.ps1')
-else
-    version_sh = find_program('tools/version.sh')
-endif
 version_inc = include_directories('.')
-version_h = custom_target('git_version.h',
-                          command: [version_sh, meson.current_build_dir(), meson.current_source_dir()],
-                          build_by_default: true,
-                          build_always_stale: true, # has internal check whether target file will be refreshed
-                          output: ['git_version.h'])
+
+conf_data = configuration_data()
+
+git_describe = run_command('git', 'describe')
+
+if git_describe.returncode() == 0
+    last_svn_hash = '16cd907fe7482cb54a7374cd28b8501f138116be'
+    svn_revision = 6962
+    git_count = run_command('git', 'rev-list', '--count', last_svn_hash + '..HEAD')
+    git_release = run_command('git', 'describe', '--exact-match')
+
+    git_describe_str = git_describe.stdout().strip().substring(1)
+    git_version_number = svn_revision + git_count.stdout().strip().to_int()
+
+    if git_release.returncode() == 0
+        git_version_string = git_describe_str
+    else
+        branch_cmd = run_command('git', 'symbolic-ref', 'HEAD')
+        branch = branch_cmd.stdout().strip().substring(11)
+        git_hash_cmd = run_command('git', 'rev-parse', '--short', 'HEAD')
+        git_hash = git_hash_cmd.stdout().strip()
+
+        git_version_template = '@0@-@1@-@2@'
+        git_version_string = git_version_template.format(git_version_number,
+                                                         branch,
+                                                         git_hash)
+    endif
+else
+    warning('git describe failed. Using default version number (' + meson.project_version() + ')')
+    git_version_number = 42
+    git_describe_str = meson.project_version()
+    git_version_string = meson.project_version()
+endif
+
+conf_data.set('git_version_number', git_version_number)
+conf_data.set_quoted('release_version', git_describe_str)
+conf_data.set_quoted('git_version_string', git_version_string)
+
+configure_file(input: 'git_version.h.in',
+               output: 'git_version.h',
+               configuration: conf_data)
 
 if host_machine.system() == 'darwin' and get_option('build_osx_bundle')
     prefix = meson.current_build_dir() / 'Aegisub.app' / 'Contents'
@@ -283,7 +314,7 @@ if not deps.contains(luajit)
     luajit_inc = luajit_sp.get_variable('incdir')
     deps += luajit_sp.get_variable('luajit_dep')
 else
-    luajit_inc = include_directories(luajit.get_pkgconfig_variable('includedir'))
+    luajit_inc = include_directories(luajit.get_variable(pkgconfig: 'includedir'))
 endif
 subdir('subprojects/luabins/src')
 
