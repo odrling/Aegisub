@@ -1,8 +1,8 @@
 {
 	"Audio" : {
-		"Player" : "DirectSound"
+		"Player" : "OpenAL"
 	},
 	"Subtitle" : {
-		"Provider" : "CSRI/xy-vsfilter_aegisub"
+		"Provider" : "libass"
 	}
 }
