@@ -53,6 +53,13 @@ jobs:
           cd ..
           ln -s ../../builddir/installdir/a/_temp/msys/msys64/mingw64 install
           ldd install/bin/aegisub
+          mkdir po
+          for i in install/share/locale/*; do
+              cp -v $i/LC_MESSAGES/aegisub.mo po/$(basename $i).mo
+          done
+          for i in /mingw64/share/locale/*; do
+              [ -e $i/LC_MESSAGES/wxstd.mo ] && cp -v $i/LC_MESSAGES/wxstd.mo po/wxstd-$(basename $i).mo
+          done
           mkdir libs
           for l in $(ldd install/bin/aegisub | grep -o '=>.*' | cut -d' '  -f2); do
               echo $l
