@@ -190,8 +190,6 @@ void VideoDisplay::Render() try {
 	if (!viewport_height || !viewport_width)
 		PositionVideo();
 
-	// Note: Right now, GetContentScaleFactor() always returns 1
-	// This should change with wxWidgets 3.2, and thus fix HiDPI scaling issues
 	videoOut->Render(viewport_left, viewport_bottom, viewport_width * GetContentScaleFactor(),
 			viewport_height * GetContentScaleFactor());
 	E(glViewport(0, std::min(viewport_bottom, 0), videoSize.GetWidth() * GetContentScaleFactor(),
