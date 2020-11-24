@@ -264,7 +264,7 @@ if host_machine.system() == 'windows' and not get_option('directsound').disabled
 endif
 
 if host_machine.system() == 'darwin'
-    frameworks_dep = dependency('appleframeworks', modules : ['CoreText', 'CoreFoundation', 'OpenGL'])
+    frameworks_dep = dependency('appleframeworks', modules : ['CoreText', 'CoreFoundation', 'GLUT', 'OpenGL'])
     deps += frameworks_dep
 endif
 

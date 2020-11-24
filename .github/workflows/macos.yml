@@ -12,6 +12,7 @@ jobs:
       - name: Install dependencies
         run: |
           brew install meson ninja libass
+          xcode-setup --install
 
       - name: Build Aegisub
         run: |
