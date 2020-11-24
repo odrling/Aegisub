@@ -11,7 +11,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          brew install meson ninja libass wxmac
+          brew install meson ninja libass wxmac icu4c ffms2 boost glib
 
       - name: Build Aegisub
         run: |
