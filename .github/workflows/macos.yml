@@ -9,6 +9,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '12.0'
+
       - name: Install dependencies
         run: |
           brew install meson ninja libass
