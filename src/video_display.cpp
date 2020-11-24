@@ -190,8 +190,10 @@ void VideoDisplay::Render() try {
 	if (!viewport_height || !viewport_width)
 		PositionVideo();
 
-	videoOut->Render(viewport_left, viewport_bottom, viewport_width, viewport_height);
-	E(glViewport(0, std::min(viewport_bottom, 0), videoSize.GetWidth(), videoSize.GetHeight()));
+	videoOut->Render(viewport_left, viewport_bottom, viewport_width * GetContentScaleFactor(),
+			viewport_height * GetContentScaleFactor());
+	E(glViewport(0, std::min(viewport_bottom, 0), videoSize.GetWidth() * GetContentScaleFactor(),
+				videoSize.GetHeight() * GetContentScaleFactor()));
 
 	E(glMatrixMode(GL_PROJECTION));
 	E(glLoadIdentity());
