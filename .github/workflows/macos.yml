@@ -11,8 +11,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          brew install meson ninja libass
-          xcode-setup --install
+          brew install meson ninja libass wxmac
 
       - name: Build Aegisub
         run: |
