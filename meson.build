@@ -207,8 +207,14 @@ endif
 conf.set('UNICODE', '1')
 conf.set('_UNICODE', '1')
 
-deps += dependency('icu-uc', version: '>=4.8.1.1')
-deps += dependency('icu-i18n', version: '>=4.8.1.1')
+if host_machine.system() == 'darwin'
+    # force build icu subproject
+    deps += dependency('icu-uc', version: '>=4.8.1.1', method: 'config-tool')
+    deps += dependency('icu-i18n', version: '>=4.8.1.1', method: 'config-tool')
+else
+    deps += dependency('icu-uc', version: '>=4.8.1.1')
+    deps += dependency('icu-i18n', version: '>=4.8.1.1')
+endif
 
 dep_avail = []
 foreach dep: [

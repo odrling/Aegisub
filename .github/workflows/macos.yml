@@ -11,12 +11,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          brew install meson ninja libass wxmac icu4c ffms2 boost glib
+          brew install meson ninja libass wxmac ffms2 glib
 
       - name: Build Aegisub
         run: |
-          export LDFLAGS="-L/usr/local/opt/icu4c/lib"
-          export CPPFLAGS="-I/usr/local/opt/icu4c/include"
-          export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
           meson builddir -Ddefault_library=static
           ninja -C builddir
