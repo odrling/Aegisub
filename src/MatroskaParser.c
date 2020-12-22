@@ -1086,28 +1086,42 @@ static void parseSegmentInfo(MatroskaFile *mf,uint64_t toplen) {
   mf->Seg.Duration = mul3(duration,mf->Seg.TimecodeScale);
 }
 
+static int getVideoTrackIndex(MatroskaFile *mf) {
+  int i;
+  for (i = 0; i < mf->nTracks; ++i) {
+    if (mf->Tracks[i]->Type == TT_VIDEO) {
+      return i;
+    }
+  }
+  return -1;
+}
+
 static void parseFirstCluster(MatroskaFile *mf,uint64_t toplen) {
   uint64_t end = filepos(mf) + toplen;
+  uint64_t clusterTimecode;
   int tracknum = -1;
-  int i = 0;
+  int videoTrack = getVideoTrackIndex(mf);
+
+  // only read the first cluster when there is no video track
+  if (videoTrack == -1)
+    mf->seen.Cluster = 1;
 
   mf->firstTimecode = 0;
 
   FOREACH(mf,toplen)
     case 0xe7: // Timecode
-      mf->firstTimecode += readUInt(mf,(unsigned)len);
+      clusterTimecode = readUInt(mf,(unsigned)len);
       break;
     case 0xa3: // BlockEx
       start = filepos(mf);
       tracknum = readVLUInt(mf); // track number
 
-      for (i = 0; i < mf->nTracks; ++i) {
-        if (mf->Tracks[i]->Number == tracknum && mf->Tracks[i]->Type == TT_VIDEO) {
-          mf->firstTimecode += readSInt(mf, 2);
-          mf->seen.Cluster = 1;
-          skipbytes(mf,end - filepos(mf));
-          return;
-        }
+      if (videoTrack != -1 &&
+	  mf->Tracks[videoTrack]->Number == tracknum && mf->Tracks[videoTrack]->Type == TT_VIDEO) {
+	mf->firstTimecode = clusterTimecode + readSInt(mf, 2);
+	skipbytes(mf,end - filepos(mf));
+	mf->seen.Cluster = 1;
+	return;
       }
 
       skipbytes(mf, len - (filepos(mf) - start));
@@ -1118,14 +1132,13 @@ static void parseFirstCluster(MatroskaFile *mf,uint64_t toplen) {
         start = filepos(mf);
         tracknum = readVLUInt(mf); // track number
 
-        for (i = 0; i < mf->nTracks; ++i) {
-          if (mf->Tracks[i]->Number == tracknum && mf->Tracks[i]->Type == TT_VIDEO) {
-            mf->firstTimecode += readSInt(mf, 2);
-            mf->seen.Cluster = 1;
-            skipbytes(mf,end - filepos(mf));
-            return;
-          }
-        }
+	if (videoTrack != -1 &&
+	    mf->Tracks[videoTrack]->Number == tracknum && mf->Tracks[videoTrack]->Type == TT_VIDEO) {
+	  mf->firstTimecode = clusterTimecode + readSInt(mf, 2);
+	  skipbytes(mf,end - filepos(mf));
+	  mf->seen.Cluster = 1;
+	  return;
+	}
 
         skipbytes(mf, len - (filepos(mf) - start));
         break;
