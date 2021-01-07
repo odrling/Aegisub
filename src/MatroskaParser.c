@@ -2193,7 +2193,7 @@ found:
 
       // recalculate this block's timecode to final timecode in ns
       timecode = mul3(mf->Tracks[tracknum]->TimecodeScale,
-	(timecode - mf->firstTimecode + block_timecode) * mf->Seg.TimecodeScale);
+	(timecode + block_timecode) * mf->Seg.TimecodeScale);
 
       c = readch(mf);
       if (c==EOF)

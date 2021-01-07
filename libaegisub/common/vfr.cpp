@@ -153,7 +153,6 @@ Framerate::Framerate(int64_t numerator, int64_t denominator, bool drop)
 
 void Framerate::SetFromTimecodes() {
 	validate_timecodes(timecodes);
-	normalize_timecodes(timecodes);
 	denominator = default_denominator;
 	numerator = (timecodes.size() - 1) * denominator * 1000 / timecodes.back();
 	last = (timecodes.size() - 1) * denominator * 1000;
