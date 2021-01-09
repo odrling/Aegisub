@@ -151,23 +151,37 @@ Framerate::Framerate(int64_t numerator, int64_t denominator, bool drop)
 	timecodes.push_back(0);
 }
 
-void Framerate::SetFromTimecodes() {
+void Framerate::SetFromTimecodes(bool normalize) {
 	validate_timecodes(timecodes);
+	if (normalize)
+		normalize_timecodes(timecodes);
 	denominator = default_denominator;
 	numerator = (timecodes.size() - 1) * denominator * 1000 / timecodes.back();
 	last = (timecodes.size() - 1) * denominator * 1000;
 }
 
+Framerate::Framerate(std::vector<int> timecodes, bool normalize)
+: timecodes(std::move(timecodes))
+{
+	SetFromTimecodes(normalize);
+}
+
 Framerate::Framerate(std::vector<int> timecodes)
 : timecodes(std::move(timecodes))
 {
-	SetFromTimecodes();
+	SetFromTimecodes(false);
+}
+
+Framerate::Framerate(std::initializer_list<int> timecodes, bool normalize)
+: timecodes(timecodes)
+{
+	SetFromTimecodes(normalize);
 }
 
 Framerate::Framerate(std::initializer_list<int> timecodes)
 : timecodes(timecodes)
 {
-	SetFromTimecodes();
+	SetFromTimecodes(false);
 }
 
 Framerate::Framerate(fs::path const& filename)
@@ -178,7 +192,7 @@ Framerate::Framerate(fs::path const& filename)
 	auto line = *line_iterator<std::string>(*file, encoding);
 	if (line == "# timecode format v2") {
 		copy(line_iterator<int>(*file, encoding), line_iterator<int>(), back_inserter(timecodes));
-		SetFromTimecodes();
+		SetFromTimecodes(false);
 		return;
 	}
 	if (line == "# timecode format v1" || line.substr(0, 7) == "Assume ") {

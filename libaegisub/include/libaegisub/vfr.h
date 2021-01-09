@@ -74,7 +74,7 @@ class Framerate {
 	bool drop = false;
 
 	/// Set FPS properties from the timecodes vector
-	void SetFromTimecodes();
+	void SetFromTimecodes(bool normalize);
 public:
 	Framerate(Framerate const&) = default;
 	Framerate& operator=(Framerate const&) = default;
@@ -107,6 +107,8 @@ public:
 	/// @param timecodes Vector of frame start times in milliseconds
 	Framerate(std::vector<int> timecodes);
 	Framerate(std::initializer_list<int> timecodes);
+	Framerate(std::vector<int> timecodes, bool normalize);
+	Framerate(std::initializer_list<int> timecodes, bool normalize);
 
 	/// @brief Get the frame visible at a given time
 	/// @param ms Time in milliseconds
