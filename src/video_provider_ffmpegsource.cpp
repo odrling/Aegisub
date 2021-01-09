@@ -43,6 +43,8 @@
 #include <libaegisub/fs.h>
 #include <libaegisub/make_unique.h>
 
+#include <boost/algorithm/string.hpp>
+
 namespace {
 typedef enum AGI_ColorSpaces {
 	AGI_CS_RGB = 0,
@@ -167,6 +169,8 @@ void FFmpegSourceVideoProvider::LoadVideo(agi::fs::path const& filename, std::st
 		else
 			throw VideoNotSupported(ErrInfo.Buffer);
 	}
+
+	const char* container = FFMS_GetFormatNameI(Indexer);
 
 	std::map<int, std::string> TrackList = GetTracksOfType(Indexer, FFMS_TYPE_VIDEO);
 	if (TrackList.size() <= 0)
@@ -306,8 +310,10 @@ void FFmpegSourceVideoProvider::LoadVideo(agi::fs::path const& filename, std::st
 	}
 	if (TimecodesVector.size() < 2)
 		Timecodes = 25.0;
-	else
-		Timecodes = agi::vfr::Framerate(TimecodesVector);
+	else {
+		bool normalize = !boost::algorithm::contains(container, "matroska");
+		Timecodes = agi::vfr::Framerate(TimecodesVector, normalize);
+	}
 }
 
 void FFmpegSourceVideoProvider::GetFrame(int n, VideoFrame &out) {
