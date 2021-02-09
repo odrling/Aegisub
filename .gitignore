@@ -12,15 +12,19 @@ tests/*.json
 tools/osx-bundle.sed
 tools/repack-thes-dict
 tools/repack-thes-dict.dSYM
+*.AppImage
 
 # IDE-specific
 .nuget
 .vs
 .kdev4/
 *.kdev4
+cscope.files
+tags
 
 # Platform-specific
 .DS_Store
+AppImage
 
 # Meson
 build*/
@@ -37,8 +41,6 @@ subprojects/ffmpeg
 subprojects/ffms2*
 subprojects/boost*
 
-# Build and tag files
-cscope.files
+# Build files
 git_version.h
 git_version.xml
-tags

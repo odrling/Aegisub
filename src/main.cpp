@@ -293,7 +293,7 @@ bool AegisubApp::OnInit() {
 
 		// Open main frame
 		StartupLog("Create main window");
-		NewProjectContext();
+		NewProjectContext(); // XXX Criticals and errors generated on `Show();`, a widget has a width of -17 (GtkSpinButton)
 
 		// Version checker
 		StartupLog("Possibly perform automatic updates check");
