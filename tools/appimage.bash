@@ -33,9 +33,12 @@ chmod +x "$APPIMAGETOOL" "$LINUXDEPLOY"
 cp packages/desktop/aegisub.desktop.template.in AppImage/aegisub.desktop || exit 1;
 cp packages/desktop/64x64.png AppImage/aegisub.png                       || exit 1;
 sed -i -e 's/@AEGISUB_COMMAND@/aegisub/g' AppImage/aegisub.desktop       || exit 1;
+rm AppImage/Aegisub/usr/bin/aegisub
 $LINUXDEPLOY                                    \
     --appdir AppImage/Aegisub                   \
     --icon-file AppImage/aegisub.png            \
     --desktop-file AppImage/aegisub.desktop     \
     --executable "$AEGISUB" || exit 1;
+mkdir -p AppImage/Aegisub/usr/share/aegisub/automation || exit 1;
+cp -rv automation/* AppImage/Aegisub/usr/share/aegisub/automation/
 $APPIMAGETOOL AppImage/Aegisub

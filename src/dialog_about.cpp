@@ -71,6 +71,7 @@ void ShowAboutDialog(wxWindow *parent) {
 		"    Rodrigo Braz Monteiro\n"
 		"    Simone Cociancich\n"
 		"    Thomas Goyne\n"
+        "    Maël Martin\n"
 		"User manual written by:\n"
 		"    Karl Blomster\n"
 		"    Niels Martin Hansen\n"

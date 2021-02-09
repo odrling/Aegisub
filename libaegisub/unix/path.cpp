@@ -22,6 +22,8 @@
 #include <boost/filesystem/operations.hpp>
 #include <pwd.h>
 
+#include <iostream>
+
 namespace {
 #ifndef __APPLE__
 std::string home_dir() {
@@ -44,17 +46,15 @@ void Path::FillPlatformSpecificPaths() {
 	agi::fs::path home = home_dir();
 	SetToken("?user", home/".aegisub");
 	SetToken("?local", home/".aegisub");
-#ifdef __linux__
-    /* AppImage case */
-    if (const char *ptr_root = getenv("APPDIR"); ptr_root != nullptr) {
+    const char *ptr_root = getenv("APPDIR");
+    if (ptr_root != nullptr) {
+        /* AppImage case */
         agi::fs::path root = ptr_root;
-        SetToken("?data", root/P_DATA);
+        SetToken("?data", root/"usr/share/aegisub/");
     } else {
+        /* No AppImage */
         SetToken("?data", P_DATA);
     }
-#else
-	SetToken("?data", P_DATA);
-#endif
 	SetToken("?dictionary", "/usr/share/hunspell");
 #else
 	agi::fs::path app_support = agi::util::GetApplicationSupportDirectory();
