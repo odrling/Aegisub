@@ -44,7 +44,17 @@ void Path::FillPlatformSpecificPaths() {
 	agi::fs::path home = home_dir();
 	SetToken("?user", home/".aegisub");
 	SetToken("?local", home/".aegisub");
+#ifdef __linux__
+    /* AppImage case */
+    if (const char *ptr_root = getenv("APPDIR"); ptr_root != nullptr) {
+        agi::fs::path root = ptr_root;
+        SetToken("?data", root/P_DATA);
+    } else {
+        SetToken("?data", P_DATA);
+    }
+#else
 	SetToken("?data", P_DATA);
+#endif
 	SetToken("?dictionary", "/usr/share/hunspell");
 #else
 	agi::fs::path app_support = agi::util::GetApplicationSupportDirectory();

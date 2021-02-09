@@ -36,3 +36,9 @@ subprojects/icu
 subprojects/ffmpeg
 subprojects/ffms2*
 subprojects/boost*
+
+# Build and tag files
+cscope.files
+git_version.h
+git_version.xml
+tags
