@@ -249,7 +249,7 @@ endforeach
 aegisub_cpp_pch = ['include/agi_pre.h']
 aegisub_c_pch = ['include/agi_pre_c.h']
 
-aegisub = executable('aegisub', aegisub_src, version_h, acconf,
+aegisub = executable('aegisub', aegisub_src, acconf,
                      link_with: [libresrc, libluabins, libaegisub],
                      include_directories: [libaegisub_inc, libresrc_inc, version_inc, deps_inc],
                      cpp_pch: aegisub_cpp_pch,
