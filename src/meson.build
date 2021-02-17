@@ -205,13 +205,11 @@ elif host_machine.system() == 'windows'
         aegisub_src += windows.compile_resources('res/res.rc',
                                                  args: wx_windres_args,
                                                  depend_files: res_dep_files,
-                                                 depends: version_h,
                                                  include_directories: [res_inc, version_inc])
     else # subproject
         wx_inc = wx.include_directories('wxmono')
         aegisub_src += windows.compile_resources('res/res.rc',
                                                  depend_files: res_dep_files,
-                                                 depends: version_h,
                                                  include_directories: [res_inc, version_inc, wx_inc])
     endif
 endif
