@@ -380,18 +380,18 @@ TEST(lagi_vfr, nonzero_start_time) {
 	Framerate fps;
 
 	ASSERT_NO_THROW(fps = Framerate({ 10, 20, 30, 40, 50 }));
-	EXPECT_EQ(0, fps.TimeAtFrame(0, EXACT));
-	EXPECT_EQ(10, fps.TimeAtFrame(1, EXACT));
-	EXPECT_EQ(20, fps.TimeAtFrame(2, EXACT));
-	EXPECT_EQ(30, fps.TimeAtFrame(3, EXACT));
-	EXPECT_EQ(40, fps.TimeAtFrame(4, EXACT));
+	EXPECT_EQ(10, fps.TimeAtFrame(0, EXACT));
+	EXPECT_EQ(20, fps.TimeAtFrame(1, EXACT));
+	EXPECT_EQ(30, fps.TimeAtFrame(2, EXACT));
+	EXPECT_EQ(40, fps.TimeAtFrame(3, EXACT));
+	EXPECT_EQ(50, fps.TimeAtFrame(4, EXACT));
 
 	ASSERT_NO_THROW(fps = Framerate({ -10, 20, 30, 40, 50 }));
-	EXPECT_EQ(0, fps.TimeAtFrame(0, EXACT));
-	EXPECT_EQ(30, fps.TimeAtFrame(1, EXACT));
-	EXPECT_EQ(40, fps.TimeAtFrame(2, EXACT));
-	EXPECT_EQ(50, fps.TimeAtFrame(3, EXACT));
-	EXPECT_EQ(60, fps.TimeAtFrame(4, EXACT));
+	EXPECT_EQ(-10, fps.TimeAtFrame(0, EXACT));
+	EXPECT_EQ(20, fps.TimeAtFrame(1, EXACT));
+	EXPECT_EQ(30, fps.TimeAtFrame(2, EXACT));
+	EXPECT_EQ(40, fps.TimeAtFrame(3, EXACT));
+	EXPECT_EQ(50, fps.TimeAtFrame(4, EXACT));
 }
 
 TEST(lagi_vfr, rational_timebase) {
