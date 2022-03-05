@@ -43,6 +43,8 @@
 
 #include <map>
 
+#include <boost/algorithm/string.hpp>
+
 namespace {
 class FFmpegSourceAudioProvider final : public agi::AudioProvider, FFmpegSourceProvider {
 	/// audio source object
@@ -89,6 +91,8 @@ void FFmpegSourceAudioProvider::LoadAudio(agi::fs::path const& filename) {
 		else
 			throw agi::AudioDataNotFound(ErrInfo.Buffer);
 	}
+
+	const char* container = FFMS_GetFormatNameI(Indexer);
 
 	std::map<int, std::string> TrackList = GetTracksOfType(Indexer, FFMS_TYPE_AUDIO);
 
@@ -142,8 +146,13 @@ void FFmpegSourceAudioProvider::LoadAudio(agi::fs::path const& filename) {
 	// update access time of index file so it won't get cleaned away
 	agi::fs::Touch(CacheName);
 
-	AudioSource = FFMS_CreateAudioSource(filename.string().c_str(), TrackNumber, Index, FFMS_DELAY_FIRST_VIDEO_TRACK, &ErrInfo);
-	if (!AudioSource)
+	int delay_mode;
+	if (boost::algorithm::contains(container, "matroska"))
+		delay_mode = FFMS_DELAY_TIME_ZERO;
+	else
+		delay_mode = FFMS_DELAY_FIRST_VIDEO_TRACK;
+
+	AudioSource = FFMS_CreateAudioSource(filename.string().c_str(), TrackNumber, Index, delay_mode, &ErrInfo); if (!AudioSource)
 		throw agi::AudioProviderError(std::string("Failed to open audio track: ") + ErrInfo.Buffer);
 
 	const FFMS_AudioProperties AudioInfo = *FFMS_GetAudioProperties(AudioSource);
