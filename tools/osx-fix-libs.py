@@ -103,6 +103,10 @@ def collectlibs(lib, masterlist, targetdir):
 
                 if os.path.islink(check):
                     link_dst = os.readlink(check)
+                    if os.path.basename(check) == os.path.basename(link_dst):
+                        check = os.path.join(os.path.dirname(check), link_dst)
+                        continue
+
                     try:
                         os.symlink(link_dst, target)
                     except FileExistsError:
