@@ -112,7 +112,7 @@ def collectlibs(lib, masterlist, targetdir):
                     except FileExistsError:
                         print("    LINK %s ... existed" % check)
                         break
-                    print("    LINK %s ... copied to target" % check)
+                    print("    LINK %s (%s) ... copied to target" % (check, link_dst))
                     link_list.append(basename)
                     check = os.path.join(os.path.dirname(check), link_dst)
         elif l not in goodlist and l not in masterlist:
