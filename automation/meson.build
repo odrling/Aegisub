@@ -4,13 +4,21 @@ subdir('vapoursynth')
 automation_dir = dataroot / 'automation'
 
 install_data(
+    'autoload/clean-k-tags.lua',
     'autoload/cleantags-autoload.lua',
+    'autoload/driftfix.lua',
+    'autoload/duetto-meika.lua',
+    'autoload/karaoke-adjust-1sec.lua',
     'autoload/karaoke-auto-leadin.lua',
+    'autoload/karaoke-split.lua',
     'autoload/kara-templater.lua',
+    'autoload/kf.lua',
     'autoload/macro-1-edgeblur.lua',
     'autoload/macro-2-mkfullwitdh.lua',
     'autoload/select-overlaps.moon',
     'autoload/strip-tags.lua',
+    'autoload/unkf.lua',
+    'autoload/wohe.lua',
     install_dir: automation_dir / 'autoload')
 
 install_data(
