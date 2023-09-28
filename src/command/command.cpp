@@ -22,6 +22,7 @@
 #include <boost/algorithm/string/join.hpp>
 #include "include/aegisub/hotkey.h"
 
+#include <map>
 #include <wx/intl.h>
 
 namespace cmd {

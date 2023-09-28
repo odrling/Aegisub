@@ -32,6 +32,8 @@
 /// @ingroup video_input audio_input ffms
 ///
 
+#include "acconf.h"
+
 #ifdef WITH_FFMS2
 #include <map>
 
@@ -39,6 +41,7 @@
 
 #include <libaegisub/fs_fwd.h>
 #include <libaegisub/scoped_ptr.h>
+#include <string>
 
 namespace agi { class BackgroundRunner; }
 

@@ -38,6 +38,8 @@
 #include <libaegisub/fs.h>
 #include <libaegisub/log.h>
 
+#include <algorithm>
+
 #ifdef __UNIX__
 #include <unistd.h>
 #endif
@@ -181,7 +183,7 @@ void CleanCache(agi::fs::path const& directory, std::string const& file_type, ui
 			return;
 		}
 
-		sort(begin(cachefiles), end(cachefiles), [](cache_item const& a, cache_item const& b) {
+		std::sort(begin(cachefiles), end(cachefiles), [](cache_item const& a, cache_item const& b) {
 			return a.first < b.first;
 		});
 

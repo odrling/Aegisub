@@ -32,6 +32,8 @@
 /// @ingroup video_input audio_input ffms
 ///
 
+#include "acconf.h"
+
 #ifdef WITH_FFMS2
 #include "ffmpegsource_common.h"
 

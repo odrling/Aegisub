@@ -34,6 +34,7 @@
 #include <cstdint>
 #include <string>
 
+#include <wx/menu.h>
 #include <wx/bitmap.h>
 #include <wx/string.h>
 

@@ -32,6 +32,8 @@
 /// @ingroup audio_output
 ///
 
+#include "acconf.h"
+
 #ifdef WITH_ALSA
 #include "include/aegisub/audio_player.h"
 

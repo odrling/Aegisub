@@ -22,9 +22,9 @@ class wxImage;
 
 struct VideoFrame {
 	std::vector<unsigned char> data;
-	size_t width;
-	size_t height;
-	size_t pitch;
+	std::size_t width;
+	std::size_t height;
+	std::size_t pitch;
 	bool flipped;
 };
 

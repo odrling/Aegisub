@@ -19,6 +19,8 @@
 
 #include <libaegisub/character_count.h>
 
+#include <algorithm>
+
 TEST(lagi_character_count, basic) {
 	EXPECT_EQ(5, agi::CharacterCount("hello", agi::IGNORE_NONE));
 }

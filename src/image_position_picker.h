@@ -1,6 +1,7 @@
 #include <wx/wx.h>
 #include <wx/sizer.h>
 #include "gl_wrap.h"
+#include <functional>
 
 typedef std::function<void(double, double, unsigned char, unsigned char, unsigned char)> updator;
 

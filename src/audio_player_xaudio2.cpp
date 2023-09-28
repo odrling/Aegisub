@@ -27,6 +27,8 @@
 //
 // Aegisub Project http://www.aegisub.org/
 
+#include "acconf.h"
+
 #ifdef WITH_XAUDIO2
 #include "include/aegisub/audio_player.h"
 
