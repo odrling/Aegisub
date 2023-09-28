@@ -18,6 +18,7 @@
 
 #include <boost/interprocess/detail/os_file_functions.hpp>
 #include <cstdint>
+#include <memory>
 
 namespace agi {
 	// boost::interprocess::file_mapping is awesome and uses CreateFileA on Windows

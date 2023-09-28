@@ -32,6 +32,8 @@
 /// @ingroup subtitle_rendering
 ///
 
+#include "acconf.h"
+
 #ifdef WITH_CSRI
 #include "subtitles_provider_csri.h"
 

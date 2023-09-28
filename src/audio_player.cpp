@@ -37,6 +37,9 @@
 #include "audio_controller.h"
 #include "factory_manager.h"
 #include "options.h"
+#include "acconf.h"
+
+#include <array>
 
 #include <boost/range/iterator_range.hpp>
 

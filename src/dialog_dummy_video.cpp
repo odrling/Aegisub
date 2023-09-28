@@ -22,6 +22,7 @@
 #include "options.h"
 #include "validators.h"
 #include "video_provider_dummy.h"
+#include "wx/valtext.h"
 
 #include <libaegisub/ass/time.h>
 #include <libaegisub/color.h>

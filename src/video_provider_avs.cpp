@@ -27,6 +27,8 @@
 //
 // Aegisub Project http://www.aegisub.org/
 
+#include "acconf.h"
+
 #ifdef WITH_AVISYNTH
 #include "include/aegisub/video_provider.h"
 

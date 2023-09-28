@@ -19,7 +19,12 @@
 /// @ingroup video_input audio_input ffms
 ///
 
+#include "acconf.h"
+
 #ifdef WITH_BESTSOURCE
+
+#include <libaegisub/fs_fwd.h>
+#include <string>
 
 #include <bsshared.h>
 

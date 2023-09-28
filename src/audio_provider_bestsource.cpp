@@ -19,6 +19,8 @@
 /// @ingroup audio_input bestsource
 ///
 
+#include "acconf.h"
+
 #ifdef WITH_BESTSOURCE
 #include <libaegisub/audio/provider.h>
 
@@ -35,6 +37,8 @@
 #include <libaegisub/log.h>
 
 #include <map>
+
+#include <wx/intl.h>
 
 namespace {
 class BSAudioProvider final : public agi::AudioProvider {
@@ -105,4 +109,3 @@ std::unique_ptr<agi::AudioProvider> CreateBSAudioProvider(agi::fs::path const& f
 }
 
 #endif /* WITH_BESTSOURCE */
-

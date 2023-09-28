@@ -18,6 +18,7 @@
 
 #include "libaegisub/ass/dialogue_parser.h"
 
+#include <cstring>
 #include <algorithm>
 
 namespace {

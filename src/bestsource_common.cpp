@@ -19,6 +19,8 @@
 /// @ingroup video_input audio_input ffms
 ///
 
+#include "acconf.h"
+
 #ifdef WITH_BESTSOURCE
 #include "bestsource_common.h"
 #include "tracklist.h"

@@ -22,6 +22,8 @@
 #include "libaegisub/option.h"
 #include "libaegisub/option_value.h"
 
+#include <algorithm>
+
 namespace {
 const char *mru_names[] = {
 	"Audio",

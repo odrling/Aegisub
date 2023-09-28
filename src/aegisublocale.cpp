@@ -37,6 +37,7 @@
 #include "compat.h"
 #include "options.h"
 #include "utils.h"
+#include "acconf.h"
 
 #include <libaegisub/path.h>
 

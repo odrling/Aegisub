@@ -16,6 +16,7 @@
 
 #include "video_frame.h"
 
+#include <boost/version.hpp>
 #include <boost/gil.hpp>
 #include <wx/image.h>
 
