@@ -22,6 +22,8 @@
 #include <unicode/uchar.h>
 #include <unicode/utf8.h>
 
+#include <algorithm>
+#include <cstring>
 #include <mutex>
 #include <unicode/brkiter.h>
 

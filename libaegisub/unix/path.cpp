@@ -22,6 +22,8 @@
 #include <boost/filesystem/operations.hpp>
 #include <pwd.h>
 
+#include "../../acconf.h"
+
 #ifndef __APPLE__
 #include <fstream>
 #include <stdlib.h>

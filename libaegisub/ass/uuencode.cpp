@@ -16,6 +16,7 @@
 
 #include <libaegisub/ass/uuencode.h>
 
+#include <cstring>
 #include <algorithm>
 
 // Despite being called uuencoding by ass_specs.doc, the format is actually

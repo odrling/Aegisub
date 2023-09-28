@@ -30,9 +30,10 @@
 #include <libaegisub/signal.h>
 
 #include <memory>
-#include <string>
 #include <vector>
 #include <wx/window.h>
+#include <wx/scrolbar.h>
+#include <wx/brush.h>
 
 namespace agi {
 	struct Context;

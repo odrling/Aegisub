@@ -29,6 +29,10 @@
 
 #include <boost/range/iterator_range.hpp>
 
+#include <wx/choicdlg.h>
+
+#include "acconf.h"
+
 using namespace agi;
 
 std::unique_ptr<AudioProvider> CreateAvisynthAudioProvider(fs::path const& filename, BackgroundRunner *);

@@ -19,6 +19,8 @@
 /// @ingroup audio_input
 ///
 
+#include "acconf.h"
+
 #ifdef WITH_VAPOURSYNTH
 #include <libaegisub/audio/provider.h>
 

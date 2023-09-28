@@ -41,6 +41,7 @@
 
 #include <memory>
 #include <vector>
+#include <algorithm>
 
 #include <wx/bitmap.h>
 #include <wx/button.h>

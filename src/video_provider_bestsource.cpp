@@ -19,6 +19,8 @@
 /// @ingroup video_input bestsource
 ///
 
+#include "acconf.h"
+
 #ifdef WITH_BESTSOURCE
 #include "include/aegisub/video_provider.h"
 
@@ -45,6 +47,9 @@ namespace agi { class BackgroundRunner; }
 #include <libaegisub/log.h>
 #include <libaegisub/format.h>
 #include <libaegisub/scoped_ptr.h>
+
+#include <wx/intl.h>
+#include <wx/msgdlg.h>
 
 namespace {
 

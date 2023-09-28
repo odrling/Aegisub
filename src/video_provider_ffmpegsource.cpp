@@ -32,6 +32,8 @@
 /// @ingroup video_input ffms
 ///
 
+#include "acconf.h"
+
 #ifdef WITH_FFMS2
 #include "ffmpegsource_common.h"
 #include "include/aegisub/video_provider.h"
@@ -44,6 +46,7 @@
 #include <libaegisub/make_unique.h>
 
 #include <boost/algorithm/string.hpp>
+#include <string>
 
 namespace {
 typedef enum AGI_ColorSpaces {

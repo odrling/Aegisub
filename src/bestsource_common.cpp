@@ -19,6 +19,8 @@
 /// @ingroup video_input audio_input ffms
 ///
 
+#include "acconf.h"
+
 #ifdef WITH_BESTSOURCE
 #include "bestsource_common.h"
 #include "tracklist.h"
@@ -36,6 +38,8 @@ extern "C" {
 
 #include <boost/crc.hpp>
 #include <boost/filesystem/path.hpp>
+
+#include <wx/choicdlg.h>
 
 namespace provider_bs {
 

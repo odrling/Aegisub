@@ -19,6 +19,7 @@
 
 #include <wx/panel.h>
 #include <wx/scrolwin.h>
+#include <wx/textctrl.h>
 
 class Preferences;
 class wxControl;

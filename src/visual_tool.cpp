@@ -45,6 +45,7 @@
 #include <boost/algorithm/string/replace.hpp>
 
 #include <algorithm>
+#include <cfloat>
 
 VisualToolBase::VisualToolBase(VideoDisplay *parent, agi::Context *context)
 : c(context)

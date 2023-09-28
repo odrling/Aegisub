@@ -18,6 +18,7 @@
 
 #include "dialogs.h"
 
+#include <boost/version.hpp>
 #include <boost/gil.hpp>
 
 AGI_DEFINE_EVENT(EVT_COLOR, agi::Color);

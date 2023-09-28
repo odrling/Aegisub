@@ -28,6 +28,8 @@
 
 #include <libaegisub/exception.h>
 
+#include <memory>
+
 namespace agi { struct Context; }
 
 #define CMD_NAME(a) const char* name() const override { return a; }

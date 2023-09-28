@@ -30,6 +30,8 @@
 /// @ingroup audio_output
 ///
 
+#include "acconf.h"
+
 #ifdef WITH_OSS
 #include "include/aegisub/audio_player.h"
 

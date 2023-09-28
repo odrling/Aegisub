@@ -18,6 +18,7 @@
 
 #include <cstdlib>
 #include <lua.hpp>
+#include <cstring>
 
 namespace agi { namespace lua {
 void do_register_lib_function(lua_State *L, const char *name, const char *type_name, void *func);

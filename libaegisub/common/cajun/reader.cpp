@@ -10,6 +10,7 @@ Author: Terry Caton
 
 #include <boost/interprocess/streams/bufferstream.hpp>
 #include <cassert>
+#include <algorithm>
 
 /*
 

@@ -23,6 +23,7 @@
 #include "gl_wrap.h"
 #include "vector2d.h"
 #include "options.h"
+#include <wx/toolbar.h>
 
 #include <libaegisub/owning_intrusive_list.h>
 #include <libaegisub/signal.h>
