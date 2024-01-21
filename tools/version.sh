@@ -4,7 +4,7 @@ export GIT_DIR="${srcdir}/.git"
 
 # If no git repo try to read from the existing git_version.h, for building from tarballs
 version_h_path="${builddir}/git_version.h"
-if ! test -d "${srcdir}/.git"; then
+if ! test -e "${srcdir}/.git"; then
   if test -f "${version_h_path}"; then
     while read line; do
       set -- $line
