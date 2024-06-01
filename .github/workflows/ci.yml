@@ -98,10 +98,16 @@ jobs:
               -Dbestsource=enabled
               -Dvapoursynth=enabled
           - {
-            name: macOS Release,
+            name: macOS (amd64) Release,
             os: macos-13,
             buildtype: release,
-            args: -Ddefault_library=static -Dbuild_osx_bundle=true -Dlocal_boost=true -Dvapoursynth=enabled --force-fallback-for=ffms2
+            args: -Ddefault_library=static -Dbuild_osx_bundle=true -Dlocal_boost=true -Dvapoursynth=enabled --force-fallback-for=ffms2 -Dbestsource=enabled
+          }
+          - {
+            name: macOS (arm64) Release,
+            os: macos-latest,
+            buildtype: release,
+            args: -Ddefault_library=static -Dbuild_osx_bundle=true -Dlocal_boost=true -Dvapoursynth=enabled --force-fallback-for=ffms2 -Dbestsource=enabled
           }
 
     steps:
@@ -170,6 +176,7 @@ jobs:
         run: meson compile -C build
       
       - name: Run test
+        if: matrix.config.os != 'macos-latest'
         run: meson test -C build --verbose "gtest main"
 
       # Windows artifacts
@@ -203,8 +210,9 @@ jobs:
       - name: Generate macOS installer
         if: startsWith(matrix.config.os, 'macos-')
         run: |
-          meson compile osx-bundle -C build
-          meson compile osx-build-dmg -C build
+          sudo meson compile osx-bundle -C build
+          sudo xattr -c build/Aegisub.app
+          sudo meson compile osx-build-dmg -C build
 
       - name: Upload artifacts - macOS dmg
         uses: actions/upload-artifact@v4
