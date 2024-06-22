@@ -17,6 +17,7 @@ option('uchardet', type: 'feature', description: 'uchardet character encoding de
 option('csri', type: 'feature', description: 'CSRI support')
 
 option('system_luajit', type: 'boolean', value: false, description: 'Force using system luajit')
+option('system_bestsource', type: 'boolean', value: false, description: 'Force using system bestsource')
 option('local_boost', type: 'boolean', value: false, description: 'Force using locally compiled Boost')
 
 option('wx_version', type: 'string', value: '3.0.0', description: 'The minimum wxWidgets version to use')

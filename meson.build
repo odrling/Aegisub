@@ -249,7 +249,12 @@ needs_ffmpeg = false
 
 if get_option('bestsource').enabled()
     conf.set('WITH_BESTSOURCE', 1)
-    deps += dependency('bestsource', fallback: ['bestsource', 'bestsource_dep'], default_options: ['enable_plugin=false'], required: true)
+    if get_option('system_bestsource')
+        deps += dependency('bestsource', required: true)
+    else
+        bestsource_subproject = subproject('bestsource', default_options: ['enable_plugin=false'])
+        deps += bestsource_subproject.get_variable('bestsource_dep')
+    endif
     dep_avail += 'BestSource'
     needs_ffmpeg = true
 endif
