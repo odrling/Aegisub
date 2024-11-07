@@ -44,6 +44,7 @@
 #include <libaegisub/make_unique.h>
 
 #include <boost/range/algorithm.hpp>
+#include <list>
 #include <wx/pen.h>
 
 namespace {

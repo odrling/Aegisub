@@ -18,6 +18,7 @@
 #include "libaegisub/fs.h"
 #include "libaegisub/io.h"
 
+#include <boost/filesystem/directory.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/path.hpp>
 #include <fcntl.h>
