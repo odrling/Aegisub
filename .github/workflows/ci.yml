@@ -73,18 +73,18 @@ jobs:
           #}
           - {
             name: Ubuntu Debug,
-            os: ubuntu-latest,
+            os: ubuntu-24.04,
             buildtype: debugoptimized,
             args: ''
           }
           - {
             name: Ubuntu Release,
-            os: ubuntu-latest,
+            os: ubuntu-24.04,
             buildtype: release,
             args: ''
           }
           - name: Ubuntu AppImage
-            os: ubuntu-22.04
+            os: ubuntu-24.04
             buildtype: release
             appimage: true
             # distro ffms is currently broken
@@ -165,7 +165,7 @@ jobs:
         if: startsWith(matrix.config.os, 'ubuntu-')
         run: |
           sudo apt-get update
-          sudo apt-get install ninja-build build-essential libx11-dev libwxgtk3.0-gtk3-dev libfreetype6-dev pkg-config libfontconfig1-dev libass-dev libasound2-dev libffms2-dev intltool libboost-all-dev libhunspell-dev libuchardet-dev libpulse-dev libopenal-dev libxxhash-dev nasm
+          sudo apt-get install ninja-build build-essential libx11-dev libwxgtk3.2-dev libfreetype6-dev pkg-config libfontconfig1-dev libass-dev libasound2-dev libffms2-dev intltool libboost-all-dev libhunspell-dev libuchardet-dev libpulse-dev libopenal-dev libxxhash-dev nasm
 
       - name: Configure
         run: |
@@ -235,7 +235,8 @@ jobs:
           curl -L "https://github.com/AppImage/AppImageKit/releases/download/13/appimagetool-x86_64.AppImage" -o appimagetool
           chmod +x linuxdeploy appimagetool
 
-          ./linuxdeploy --appdir appdir --desktop-file=appdir/aegisub.desktop
+          mv appdir/aegisub.desktop appdir/org.aegisub.Aegisub.desktop
+          ./linuxdeploy --appdir appdir --desktop-file=appdir/org.aegisub.Aegisub.desktop
           ./appimagetool appdir
 
       - name: Upload artifacts - Linux AppImage
